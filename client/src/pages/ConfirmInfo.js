@@ -1,54 +1,66 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import {
+    Box,
+    Heading,
+    Text,
+    VStack,
+    Button
+} from "@chakra-ui/react";
 
-const HeroSelection = () => {
-    // State to hold fetched data
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [timeSpent, setTimeSpent] = useState("");
+const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
+    const navigate = useNavigate();
 
-    // Simulate data fetching
-    useEffect(() => {
-        // You could replace this with a real API call
-        setName("John Doe");
-        setEmail("john.doe@example.com");
-        setTimeSpent("5 minutes");
-    }, []);
-
-    const navigate = useNavigate(); // Initialize useNavigate
-
-    // Handler for Back button
-    const handleBack = () => {
-        navigate("/Home"); // Replace with your actual Home route
-    };
-
-    // Handler for Next button
-    const handleNext = () => {
-        navigate("/ConfirmInfo"); // Replace with your actual ConfirmInfo route
+    // Function to handle button clicks
+    const handleButtonClick = () => {
+        navigate("/Completed");
     };
 
     return (
-        <div>
-            <h1>Please select someone to help:</h1>
+        <Box p="6" minH="100vh" textAlign="center">
+            <Heading size="lg" mb="4">Selection Confirmed!</Heading>
+            <Text fontSize="lg" mb="8">
+                Email notification sent to the selected user.
+            </Text>
 
-            <div>
-                {/* Name Box */}
-                <div>Name: {name}</div>
+            <VStack align="stretch" spacing="4" maxW="600px" mx="auto">
+                <Text fontSize="lg">
+                    <strong>User Name:</strong> {userName || "Loading..."}
+                </Text>
+                <Text fontSize="lg">
+                    <strong>User Email:</strong> {userEmail || "Loading..."}
+                </Text>
+                <Text fontSize="lg"><strong>Problem Description:</strong></Text>
+                <Box
+                    p="4"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    borderRadius="md"
+                    minH="100px"
+                    overflowY="auto"
+                    fontSize="md"
+                >
+                    {problemDescription || "Loading..."}
+                </Box>
+            </VStack>
 
-                {/* Email Box */}
-                <div>Email: {email}</div>
+            <Heading size="md" mt="12" mb="4">
+                Please select one of the following actions upon arrival:
+            </Heading>
 
-                {/* Time Spent Waiting Box */}
-                <div>Time Spent Waiting: {timeSpent}</div>
-            </div>
-
-            {/* Navigation Buttons */}
-            <div>
-                <button onClick={handleBack}>Back</button>
-                <button onClick={handleNext}>Next</button>
-            </div>
-        </div>
+            <VStack spacing="4" maxW="600px" mx="auto" w="full">
+                <Button onClick={handleButtonClick} w="full">
+                    User successfully helped
+                </Button>
+                <Button onClick={handleButtonClick} w="full">
+                    Unable to help user
+                </Button>
+                <Button onClick={handleButtonClick} w="full">
+                    User not found at location
+                </Button>
+            </VStack>
+        </Box>
     );
 };
 
-export default HeroSelection;
+export default ConfirmInfo;

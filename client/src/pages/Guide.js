@@ -1,29 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link as RouterLink } from "react-router-dom";
+import { Box, Text, Link, VStack } from "@chakra-ui/react";
 
 const Guide = () => {
     return (
-        <div>
-            <div>
-                <p>Here is a guide on how to attempt to fix a flat tire yourself:</p>
-                <a
-                    href="https://example.com/your-guide-link" // Replace this URL with your actual link
+        <Box p="4">
+            <VStack align="center" spacing="4" mt="10">
+                <Text>Here is a guide on how to attempt to fix a flat tire yourself:</Text>
+                <Link
+                    href="https://www.amfam.com/resources/articles/on-the-road/11-steps-to-fix-a-flat-tire"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     Fix a Flat Tire Guide
-                </a>
-            </div>
+                </Link>
 
-            {/* Bottom Link for more help */}
-            <div>
-                <Link
-                    to="/VictimMap" // Adjust this path based on your routing setup
-                >
+                {/* Bottom Link for more help */}
+                <Link as={RouterLink} to="/VictimMap">
                     Still need help?
                 </Link>
-            </div>
-        </div>
+            </VStack>
+        </Box>
     );
 };
 

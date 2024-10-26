@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import '../App.css';
-import { useNavigate } from 'react-router-dom';
-import Map from '../components/Map';
+import { useNavigate } from "react-router-dom";
+import { Box, Button, Heading, Text, VStack, Center } from "@chakra-ui/react";
+import Map from "../components/Map";
 
 const Home = () => {
     const navigate = useNavigate();
 
     const handleClick1 = () => {
-        navigate('/ProblemIdentification');
+        navigate("/ProblemIdentification");
     };
     const handleClick2 = () => {
-        navigate('/HeroSelection');
+        navigate("/HeroSelection");
     };
     const [location, setLocation] = useState({ latitude: null, longitude: null });
 
@@ -24,27 +24,31 @@ const Home = () => {
                     });
                 },
                 (error) => {
-                    console.error('Error getting location:', error);
+                    console.error("Error getting location:", error);
                 }
             );
         } else {
-            console.error('Geolocation is not supported by this browser.');
+            console.error("Geolocation is not supported by this browser.");
         }
     }, []);
 
     return (
-        <div className="App">
-            <h1 className="title">Do you need help?</h1>   
-            <div className="map"> --- MAP --- </div>
-            {location.latitude && location.longitude ? (
+        <Box p="4" textAlign="center">
+            <Heading size="xl" mb="4">Do you need help?</Heading>
+
+            <Center mb="4">
+                {location.latitude && location.longitude ? (
                     <Map position={location} />
                 ) : (
-                    <p>Loading map...</p>
-            )}
-            <div className="map"> --- MAP --- </div>
-            <button onClick={handleClick1}>Yes</button>
-            <button onClick={handleClick2}>No</button>
-        </div>
+                    <Text>Loading map...</Text>
+                )}
+            </Center>
+
+            <VStack spacing="4">
+                <Button onClick={handleClick1}>Yes</Button>
+                <Button onClick={handleClick2}>No</Button>
+            </VStack>
+        </Box>
     );
 };
 

@@ -5,7 +5,7 @@ import L from "leaflet";
 
 import carBreakdown from "../markerIcon/vehicleBreakdown.png"
 
-const Map = ({position}) => {
+const Map = ({position, victims}) => {
     const mapRef = useRef(null);
     const latitude = position.latitude;
     const longitude = position.longitude;
@@ -32,6 +32,13 @@ const Map = ({position}) => {
             </Marker>
 
           {/* Additional map layers or components can be added here */}
+            {victims ? victims.map(v =>
+                <Marker
+                    data = {v}
+                    position = {[v.latitude, v.longitude]}>
+                        <Popup>Victim Info</Popup>
+                </Marker>)
+                : null}
         </MapContainer>
     );
 };
