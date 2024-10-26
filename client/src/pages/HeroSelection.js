@@ -84,13 +84,15 @@ const HeroSelection = () => {
                 </Box>
             </VStack>
 
-            <HStack spacing="4">
-                <Button onClick={handleBack}>Back</Button>
-                <Button onClick={handleNext}>Next</Button>
-            </HStack>
+            {/* Centered Buttons */}
+            <Center>
+                <HStack spacing="4">
+                    <Button onClick={handleBack}>Back</Button>
+                    <Button onClick={handleNext}>Next</Button>
+                </HStack>
+            </Center>
         </Box>
     );
 };
 
 export default HeroSelection;
-
