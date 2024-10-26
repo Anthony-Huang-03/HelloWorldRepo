@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Heading, Text, Button, VStack, HStack, Center } from "@chakra-ui/react";
-import Map from "../components/Map"; // Ensure the Map component is correctly imported
+import Map from "../components/Map";
+import axios from "axios"; // Ensure the Map component is correctly imported
 
 const HeroSelection = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [timeSpent, setTimeSpent] = useState("");
     const [location, setLocation] = useState({ latitude: null, longitude: null });
+    const [victims, setVictims] = useState(null);
+    const [selectedMarker, setSelectedMarker] = useState(null);
 
     useEffect(() => {
         // Simulate data fetching
@@ -31,12 +34,26 @@ const HeroSelection = () => {
         } else {
             console.error("Geolocation is not supported by this browser.");
         }
+
+        axios.get("http://localhost:5000/api/victims")
+            .then(res => {
+                setVictims(res.data.victims);
+                console.log(res.data.victims);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }, []);
 
     const navigate = useNavigate();
 
     const handleBack = () => navigate("/Home");
     const handleNext = () => navigate("/ConfirmInfo");
+
+    const handleMarkerSelect = (marker) => {
+        setSelectedMarker(marker);
+        console.log(marker); // This will log the actual DOM element
+    }
 
     return (
         <Box p="5" minH="100vh" textAlign="center">
@@ -47,8 +64,8 @@ const HeroSelection = () => {
             {/* Map container */}
             <Center mb="8">
                 <Box width="400px" height="300px" overflow="hidden">
-                    {location.latitude && location.longitude ? (
-                        <Map position={location} />
+                    {location.latitude && location.longitude && victims ? (
+                        <Map position={location} victims={victims} onMarkerSelect={handleMarkerSelect} />
                     ) : (
                         <Text>Loading map...</Text>
                     )}

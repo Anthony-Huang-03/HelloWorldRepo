@@ -5,7 +5,7 @@ import L from "leaflet";
 
 import carBreakdown from "../markerIcon/vehicleBreakdown.png"
 
-const Map = ({position, victims}) => {
+const Map = ({position, victims, onMarkerSelect}) => {
     const mapRef = useRef(null);
     const latitude = position.latitude;
     const longitude = position.longitude;
@@ -23,20 +23,29 @@ const Map = ({position, victims}) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[latitude, longitude]} icon={customIcon}>
-                <Popup>
-                    <div>
-                        <h4>You are here!</h4>
-                    </div>
-                </Popup>
+            <Marker
+                position={[latitude, longitude]}
+                icon={customIcon}>
+                    <Popup>
+                        <div>
+                            <h4>You are here!</h4>
+                        </div>
+                    </Popup>
             </Marker>
 
           {/* Additional map layers or components can be added here */}
             {victims ? victims.map(v =>
                 <Marker
                     data = {v}
-                    position = {[v.latitude, v.longitude]}>
-                        <Popup>Victim Info</Popup>
+                    position = {[v.latitude, v.longitude]}
+                    eventHandlers={{
+                        click: () => onMarkerSelect(v)
+                    }}
+                    icon={customIcon}>
+                        <Popup>
+                            {v.latitude}
+                            {v.longitude}
+                        </Popup>
                 </Marker>)
                 : null}
         </MapContainer>
