@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Heading, Text, VStack, Center } from "@chakra-ui/react";
 import Map from "../components/Map";
+import axios from "axios";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Home = () => {
         navigate("/HeroSelection");
     };
     const [location, setLocation] = useState({ latitude: null, longitude: null });
+    const [victims, setVictims] = useState(null);
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -30,6 +32,15 @@ const Home = () => {
         } else {
             console.error("Geolocation is not supported by this browser.");
         }
+
+        axios.get("http://localhost:5000/api/victims")
+            .then(res => {
+                setVictims(res.data.victims);
+                console.log(res.data.victims);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }, []);
 
     return (
@@ -37,8 +48,8 @@ const Home = () => {
             <Heading size="xl" mb="4">Do you need help?</Heading>
 
             <Center mb="4">
-                {location.latitude && location.longitude ? (
-                    <Map position={location} />
+                {location.latitude && location.longitude && victims ? (
+                    <Map position={location} victims={victims} />
                 ) : (
                     <Text>Loading map...</Text>
                 )}
