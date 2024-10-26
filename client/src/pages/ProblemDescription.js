@@ -8,11 +8,6 @@ const ProblemDescription = () => {
     const navigate = useNavigate();
     const { category, latitude, longitude } = location.state || {};
 
-    const handleClick1 = () => {
-        navigate('/VictimMap');
-
-    };
-
     const handleClick2 = () => {
         navigate('/');
     };
@@ -45,6 +40,8 @@ const ProblemDescription = () => {
             console.error("Error adding victim:", error);
             alert("There was an error adding the victim.");
         }
+        console.log("pressing submit");
+        navigate('/VictimMap');
     };
 
     return (
@@ -73,7 +70,7 @@ const ProblemDescription = () => {
                     <Input type={victim.description} id="description" name="description" />
                 </FormControl>
 
-                <Button onClick={handleClick1} type="submit">Submit</Button>
+                <Button onClick={handleSubmit} type="submit">Submit</Button>
             </VStack>
             <Button onClick={handleClick2} mt="4">Back</Button>
         </Box>
