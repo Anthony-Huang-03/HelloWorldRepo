@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios.">
+      <change afterPath="$PROJECT_DIR$/server/controllers/heroController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/heroRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/victimController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/victimController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/victimRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/victimRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/hero.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +98,7 @@
       <workItem from="1692072901526" duration="56000" />
       <workItem from="1729953865729" duration="439000" />
       <workItem from="1729954310665" duration="416000" />
-      <workItem from="1729956004960" duration="1679000" />
+      <workItem from="1729956004960" duration="2208000" />
     </task>
     <task id="LOCAL-00001" summary="Set up React Redux app with Express backend">
       <option name="closed" value="true" />
