@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios." />
+    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios.">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +57,7 @@
       <map>
         <entry key="com.haulmont.rcb.reactComponents" value="false" />
         <entry key="com.haulmont.rcb.reactInspector" value="false" />
+        <entry key="com.haulmont.rcb.storybook" value="false" />
       </map>
     </option>
   </component>
@@ -90,6 +94,7 @@
       <workItem from="1692053607074" duration="1347000" />
       <workItem from="1692072901526" duration="56000" />
       <workItem from="1729953865729" duration="439000" />
+      <workItem from="1729954310665" duration="416000" />
     </task>
     <task id="LOCAL-00001" summary="Set up React Redux app with Express backend">
       <option name="closed" value="true" />
