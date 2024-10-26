@@ -56,7 +56,47 @@ function App() {
         <Router>
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route path="/about" element={<Completed />} />
+                <Route path="/Home" element={<Home />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<Completed />} />
+                <Route path="/Completed" element={<Completed />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<ConfirmInfo />} />
+                <Route path="/ConfirmInfo" element={<ConfirmInfo />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<Confirmation />} />
+                <Route path="/Confirmation" element={<Confirmation />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<Guide />} />
+                <Route path="/Guide" element={<Guide />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<HeroSelection />} />
+                <Route path="/HeroSelection" element={<HeroSelection />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<NoPeopleAvail />} />
+                <Route path="/NoPeopleAvail" element={<NoPeopleAvail />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<ProblemDescription />} />
+                <Route path="/ProblemDescription" element={<ProblemDescription />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<ProblemIdentification />} />
+                <Route path="/ProblemIdentification" element={<ProblemIdentification />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<RateAfterHelp />} />
+                <Route path="/RateAfterHelp" element={<RateAfterHelp />} />
+            </Routes>
+            <Routes>
+                <Route exact path="/" element={<VictimMap />} />
+                <Route path="/VictimMap" element={<VictimMap />} />
             </Routes>
         </Router>
       </div>
