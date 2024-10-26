@@ -10,7 +10,7 @@ const HeroSelection = () => {
     const [timeSpent, setTimeSpent] = useState("");
     const [location, setLocation] = useState({ latitude: null, longitude: null });
     const [victims, setVictims] = useState(null);
-    const [selectedMarker, setSelectedMarker] = useState(null);
+    const [selectedVictim, setSelectedVictim] = useState(null);
 
     useEffect(() => {
         // Simulate data fetching
@@ -51,7 +51,7 @@ const HeroSelection = () => {
     const handleNext = () => navigate("/ConfirmInfo");
 
     const handleMarkerSelect = (marker) => {
-        setSelectedMarker(marker);
+        setSelectedVictim(marker);
         console.log(marker); // This will log the actual DOM element
     }
 
