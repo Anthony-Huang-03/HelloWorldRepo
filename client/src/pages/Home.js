@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
-import "leaflet/dist/leaflet.css";
 import Map from '../components/Map';
 
 const Home = () => {
