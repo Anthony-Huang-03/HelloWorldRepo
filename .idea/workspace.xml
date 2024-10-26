@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/conc" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/conc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/concurrently" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/concurrently" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/mime" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/nodemon" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/nodemon" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/nodetouch" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/nodetouch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/tree-kill" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/tree-kill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/concurrently/dist/bin/concurrently.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/concurrently/dist/bin/concurrently.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/mime/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime/cli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/mime/src/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime/src/build.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/nodemon/bin/nodemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nodemon/bin/nodemon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/semver/bin/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/semver/bin/semver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/touch/bin/nodetouch.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/touch/bin/nodetouch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/tree-kill/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/tree-kill/cli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/tree-kill/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/tree-kill/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
