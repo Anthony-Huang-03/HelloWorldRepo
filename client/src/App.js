@@ -3,6 +3,18 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
+import completed from "./pages/Completed";
+import confirmation from "./pages/Confirmation";
+import confirmInfo from "./pages/ConfirmInfo";
+import guide from "./pages/Guide";
+import heroSelection from "./pages/HeroSelection";
+import home from "./pages/Home";
+import noPeopleAvail from "./pages/NoPeopleAvail";
+import problemDescription from "./pages/ProblemDescription";
+import problemIdentification from "./pages/ProblemIdentification";
+import rateAfterHelp from "./pages/RateAfterHelp";
+import victimMap from "./pages/VictimMap";
+
 function App() {
   const [response, setResponse] = useState('');
   const [post, setPost] = useState('');
