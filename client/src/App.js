@@ -71,7 +71,6 @@ function App() {
   return (
     <ChakraProvider value={defaultSystem}>
       <div className="App">
-        <Button>HELLO</Button>
         <Router>
             <Routes>
                 <Route exact path="/" element={<Home />} />

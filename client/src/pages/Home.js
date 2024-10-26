@@ -1,9 +1,10 @@
 import React from "react";
+import '../App.css';
 
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to POOP</h1>
+            <h1 className="title">Do you need help?</h1>   
         </div>
     );
 };
