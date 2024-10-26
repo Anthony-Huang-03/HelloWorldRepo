@@ -28,78 +28,27 @@ const HeroSelection = () => {
     };
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "20px",
-            backgroundColor: "#FFF5E4",
-            height: "100vh"
-        }}>
-            <h1 style={{
-                fontSize: "24px",
-                fontFamily: "Arial, sans-serif",
-                backgroundColor: "#6A9C89",
-                padding: "10px",
-                borderRadius: "8px",
-                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-            }}>
-                Please select someone to help:
-            </h1>
+        <div>
+            <h1>Please select someone to help:</h1>
 
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                marginTop: "auto",
-                width: "100%"
-            }}>
+            <div>
                 {/* Name Box */}
-                <div style={boxStyle}>
-                    Name: {name}
-                </div>
+                <div>Name: {name}</div>
 
                 {/* Email Box */}
-                <div style={boxStyle}>
-                    Email: {email}
-                </div>
+                <div>Email: {email}</div>
 
                 {/* Time Spent Waiting Box */}
-                <div style={boxStyle}>
-                    Time Spent Waiting: {timeSpent}
-                </div>
+                <div>Time Spent Waiting: {timeSpent}</div>
             </div>
 
             {/* Navigation Buttons */}
-            <div style={{ marginTop: "20px" }}>
-                <button onClick={handleBack} style={buttonStyle}>Back</button>
-                <button onClick={handleNext} style={buttonStyle}>Next</button>
+            <div>
+                <button onClick={handleBack}>Back</button>
+                <button onClick={handleNext}>Next</button>
             </div>
         </div>
     );
-};
-
-// Styles for the boxes and buttons
-const boxStyle = {
-    backgroundColor: "#C1D8C3",
-    padding: "15px",
-    margin: "10px",
-    width: "80%",
-    textAlign: "center",
-    borderRadius: "8px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-};
-
-const buttonStyle = {
-    backgroundColor: "#6A9C89",
-    color: "#FFFFFF",
-    border: "none",
-    borderRadius: "8px",
-    padding: "10px 20px",
-    margin: "5px",
-    cursor: "pointer",
-    fontSize: "16px"
 };
 
 export default HeroSelection;
