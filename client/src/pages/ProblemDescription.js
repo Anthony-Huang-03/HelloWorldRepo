@@ -1,39 +1,49 @@
 import React from "react";
-import '../App.css';
+import { Box, Heading, Text, FormControl, FormLabel, Input, Button, VStack, Alert, AlertIcon } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
 
-
 const ProblemDescription = () => {
-
     const navigate = useNavigate();
 
     const handleClick1 = () => {
-        navigate('/VictimMap'); 
+        navigate('/VictimMap');
     };
 
     const handleClick2 = () => {
-        navigate('/'); 
+        navigate('/');
     };
 
     return (
-        <div>
-            <h1 className="title">What is your problem?</h1>  
-            <div className="warning">If you are in immediate danger, please call 911!</div> 
-            <div className="map"> --- MAP --- </div>
-            <form action="/action_page.php">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"></input>
-                <br></br>
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email"></input>
-                <br></br>
-                <label for="issueDescription">Description:</label>
-                <input type="text" id="description" name="description"></input>
-                <br></br>
-                <input onClick={handleClick1} type="submit" value="Submit"></input>
-            </form>
-            <button onClick={handleClick2}>Back</button>
-        </div>
+        <Box textAlign="center" p="6">
+            <Heading size="lg" mb="4">What is your problem?</Heading>
+
+            {/* 911 Warning Alert */}
+            <Alert status="warning" mb="4" justifyContent="center">
+                <AlertIcon />
+                If you are in immediate danger, please call 911!
+            </Alert>
+
+            <Box mb="6">--- MAP ---</Box>
+            <VStack spacing="4" as="form" action="/action_page.php">
+                <FormControl>
+                    <FormLabel htmlFor="name">Name:</FormLabel>
+                    <Input type="text" id="name" name="name" />
+                </FormControl>
+
+                <FormControl>
+                    <FormLabel htmlFor="email">Email:</FormLabel>
+                    <Input type="text" id="email" name="email" />
+                </FormControl>
+
+                <FormControl>
+                    <FormLabel htmlFor="description">Description:</FormLabel>
+                    <Input type="text" id="description" name="description" />
+                </FormControl>
+
+                <Button onClick={handleClick1} type="submit">Submit</Button>
+            </VStack>
+            <Button onClick={handleClick2} mt="4">Back</Button>
+        </Box>
     );
 };
 
