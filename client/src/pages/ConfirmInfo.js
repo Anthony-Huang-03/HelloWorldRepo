@@ -1,12 +1,30 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
-    const navigate = useNavigate(); // Initialize navigate for navigation
+const HeroSelection = () => {
+    // State to hold fetched data
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [timeSpent, setTimeSpent] = useState("");
 
-    // Function to handle button clicks
-    const handleButtonClick = () => {
-        navigate("/Completed"); // Navigate to Completion page for all buttons
+    // Simulate data fetching
+    useEffect(() => {
+        // You could replace this with a real API call
+        setName("John Doe");
+        setEmail("john.doe@example.com");
+        setTimeSpent("5 minutes");
+    }, []);
+
+    const navigate = useNavigate(); // Initialize useNavigate
+
+    // Handler for Back button
+    const handleBack = () => {
+        navigate("/Home"); // Replace with your actual Home route
+    };
+
+    // Handler for Next button
+    const handleNext = () => {
+        navigate("/ConfirmInfo"); // Replace with your actual ConfirmInfo route
     };
 
     return (
@@ -14,107 +32,74 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "flex-start",
             padding: "20px",
-            fontFamily: "Arial, sans-serif",
             backgroundColor: "#FFF5E4",
-            height: "100vh",
-            color: "#000000"
+            height: "100vh"
         }}>
             <h1 style={{
                 fontSize: "24px",
-                marginBottom: "20px",
-                textAlign: "center"
+                fontFamily: "Arial, sans-serif",
+                backgroundColor: "#6A9C89",
+                padding: "10px",
+                borderRadius: "8px",
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
             }}>
-                Selection Confirmed!
+                Please select someone to help:
             </h1>
-
-            <p style={{
-                fontSize: "18px",
-                color: "#6A9C89",
-                marginBottom: "40px",
-                textAlign: "center"
-            }}>
-                Email notification sent to the selected user.
-            </p>
-
-            <div style={{ marginBottom: "80px" }}></div>
 
             <div style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                width: "80%",
-                maxWidth: "600px"
+                justifyContent: "flex-end",
+                alignItems: "center",
+                marginTop: "auto",
+                width: "100%"
             }}>
-                <p style={{ fontSize: "18px", marginBottom: "10px" }}>
-                    <strong>User Name:</strong> {userName || "Loading..."}
-                </p>
+                {/* Name Box */}
+                <div style={boxStyle}>
+                    Name: {name}
+                </div>
 
-                <p style={{ fontSize: "18px", marginBottom: "10px" }}>
-                    <strong>User Email:</strong> {userEmail || "Loading..."}
-                </p>
+                {/* Email Box */}
+                <div style={boxStyle}>
+                    Email: {email}
+                </div>
 
-                <p style={{ fontSize: "18px", marginBottom: "10px" }}>
-                    <strong>Problem Description:</strong>
-                </p>
-
-                <div style={{
-                    backgroundColor: "#FFF5E4",
-                    color: "#000000",
-                    border: "1px solid #C1D8C3",
-                    borderRadius: "8px",
-                    padding: "10px",
-                    minHeight: "100px",
-                    width: "100%",
-                    fontSize: "16px",
-                    overflowY: "auto"
-                }}>
-                    {problemDescription || "Loading..."}
+                {/* Time Spent Waiting Box */}
+                <div style={boxStyle}>
+                    Time Spent Waiting: {timeSpent}
                 </div>
             </div>
 
-            <h2 style={{
-                fontSize: "20px",
-                marginTop: "60px",
-                marginBottom: "20px",
-                textAlign: "center"
-            }}>
-                Please select one of the following actions upon arrival:
-            </h2>
-
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                width: "80%",
-                maxWidth: "600px"
-            }}>
-                <button style={buttonStyle} onClick={handleButtonClick}>
-                    User successfully helped
-                </button>
-                <button style={buttonStyle} onClick={handleButtonClick}>
-                    Unable to help user
-                </button>
-                <button style={buttonStyle} onClick={handleButtonClick}>
-                    User not found at location
-                </button>
+            {/* Navigation Buttons */}
+            <div style={{ marginTop: "20px" }}>
+                <button onClick={handleBack} style={buttonStyle}>Back</button>
+                <button onClick={handleNext} style={buttonStyle}>Next</button>
             </div>
         </div>
     );
 };
 
-// Button style shared across buttons
-const buttonStyle = {
+// Styles for the boxes and buttons
+const boxStyle = {
     backgroundColor: "#C1D8C3",
-    color: "#000000",
+    padding: "15px",
+    margin: "10px",
+    width: "80%",
+    textAlign: "center",
+    borderRadius: "8px",
+    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
+};
+
+const buttonStyle = {
+    backgroundColor: "#6A9C89",
+    color: "#FFFFFF",
     border: "none",
     borderRadius: "8px",
     padding: "10px 20px",
-    margin: "5px 0",
+    margin: "5px",
     cursor: "pointer",
-    fontSize: "18px",
-    width: "100%"
+    fontSize: "16px"
 };
 
-export default ConfirmInfo;
+export default HeroSelection;
