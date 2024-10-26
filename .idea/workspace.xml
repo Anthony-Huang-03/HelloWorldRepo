@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios." />
+    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios.">
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
