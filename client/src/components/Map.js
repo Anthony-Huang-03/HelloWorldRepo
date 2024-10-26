@@ -1,52 +1,36 @@
-import React, { useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useRef, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-// import { Marker, Popup } from "leaflet/src/layer";
+import L from "leaflet";
 
-// const Map = ({position}) => {
-//     const mapRef = useRef(null);
-
-//     return (
-//         // Make sure you set the height and width of the map container otherwise the map won't show
-//         <MapContainer center={[position.latitude, position.longitude]} zoom={13} ref={mapRef} style={{height: "100vh", width: "100vw"}}>
-//             <TileLayer
-//                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-//             />
-//             <Marker position={position}>
-//                 <Popup>
-//                     A pretty CSS3 popup. <br /> Easily customizable.
-//                 </Popup>
-//             </Marker>
-//             {/* Additional markers for each victim */}
-//             {/*{victims.map(victim => {*/}
-//             {/*    return <Marker position = {[victim.latitude, victim.longitude]}>*/}
-//             {/*        <Popup>*/}
-//             {/*            Some information about {victim.name}*/}
-//             {/*        </Popup>*/}
-//             {/*    </Marker>*/}
-//             {/*})}*/}
-//         </MapContainer>
-//     );
-// };
+import carBreakdown from "../markerIcon/vehicleBreakdown.png"
 
 const Map = ({position}) => {
     const mapRef = useRef(null);
     const latitude = position.latitude;
     const longitude = position.longitude;
-  
+
+    const customIcon = L.icon({
+        iconUrl: carBreakdown, // URL to your custom marker image
+        iconSize: [80, 80], // Size of the icon [width, height]
+        iconAnchor: [40, 40], // Anchor point of the icon [horizontal, vertical]
+    });
+
     return ( 
       // Make sure you set the height and width of the map container otherwise the map won't show
-        <MapContainer center={[latitude, longitude]} zoom={13} ref={mapRef} style={{height: "50vh", width: "50vw"}}>
+        <MapContainer center={[latitude, longitude]} zoom={20} ref={mapRef} style={{height: "50vh", width: "50vw"}}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[latitude, longitude]}>
+            <Marker position={[latitude, longitude]} icon={customIcon}>
                 <Popup>
-                    You are here!
+                    <div>
+                        <h4>You are here!</h4>
+                    </div>
                 </Popup>
             </Marker>
+
           {/* Additional map layers or components can be added here */}
         </MapContainer>
     );

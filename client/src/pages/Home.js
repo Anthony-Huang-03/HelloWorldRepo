@@ -12,7 +12,6 @@ const Home = () => {
     const handleClick2 = () => {
         navigate('/HeroSelection');
     };
-
     const [location, setLocation] = useState({ latitude: null, longitude: null });
 
     useEffect(() => {
