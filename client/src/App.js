@@ -3,24 +3,6 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
-import home from "./pages/Home";
-import completed from "./pages/Completed";
-import confirm from "./pages/Confirm";
-import guide from "./pages/Guide";
-import confirmation from "./pages/Confirmation";
-import heroSelection from "./pages/HeroSelection";
-import noPeopleAvail from "./pages/NoPeopleAvail";
-import problemDescription from "./pages/ProblemDescription";
-import problemIdentification from "./pages/ProblemIdentification";
-import rateAfterHelp from "./pages/RateAfterHelp";
-import victimMap from "./pages/VictimMap";
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-} from "react-router-dom";
-
 function App() {
   const [response, setResponse] = useState('');
   const [post, setPost] = useState('');
@@ -52,7 +34,6 @@ function App() {
 
   return (
       <div className="App">
-
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -81,7 +62,6 @@ function App() {
         </form>
         <p>{responseToPost}</p>
       </div>
-
   );
 }
 

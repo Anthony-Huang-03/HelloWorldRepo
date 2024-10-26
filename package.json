@@ -6,20 +6,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "server": "cd server && npm run start",
-    "update-client": "cd client && npm i",
-    "update-server": "cd server && npm i",
-    "update-all": "concurrently -kill-others-on-fail \"npm run update-client\" \"npm run update-server\""
+    "server": "cd server && npm run start"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@chakra-ui/next-js": "^2.4.2",
-    "@chakra-ui/react": "^3.0.1",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "concurrently": "^9.0.1",
-    "framer-motion": "^11.11.10"
+    "concurrently": "^9.0.1"
   }
 }
