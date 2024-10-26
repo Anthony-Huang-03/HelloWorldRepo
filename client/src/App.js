@@ -21,7 +21,6 @@ import {
     Route,
 } from "react-router-dom";
 
-
 function App() {
   const [response, setResponse] = useState('');
   const [post, setPost] = useState('');
