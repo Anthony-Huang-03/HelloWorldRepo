@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Box, Heading, Text, Button, VStack, HStack } from "@chakra-ui/react";
 
 const HeroSelection = () => {
     // State to hold fetched data
@@ -8,35 +10,44 @@ const HeroSelection = () => {
 
     // Simulate data fetching
     useEffect(() => {
-        // You could replace this with a real API call
         setName("John Doe");
         setEmail("john.doe@example.com");
         setTimeSpent("5 minutes");
     }, []);
 
+    const navigate = useNavigate();
+
+    // Handlers for navigation buttons
+    const handleBack = () => navigate("/Home");
+    const handleNext = () => navigate("/ConfirmInfo");
+
     return (
-        <div>
-            <h1>
+        <Box p="5" minH="100vh" textAlign="center">
+            <Heading size="lg" mb="6">
                 Please select someone to help:
-            </h1>
+            </Heading>
 
-            <div>
-                {/* Name Box */}
-                <div>
-                    Name: {name}
-                </div>
+            <VStack spacing="4" mb="8">
+                <Box p="4" borderRadius="md" boxShadow="md">
+                    <Text><strong>Name:</strong> {name}</Text>
+                </Box>
+                <Box p="4" borderRadius="md" boxShadow="md">
+                    <Text><strong>Email:</strong> {email}</Text>
+                </Box>
+                <Box p="4" borderRadius="md" boxShadow="md">
+                    <Text><strong>Time Spent Waiting:</strong> {timeSpent}</Text>
+                </Box>
+            </VStack>
 
-                {/* Email Box */}
-                <div>
-                    Email: {email}
-                </div>
-
-                {/* Time Spent Waiting Box */}
-                <div>
-                    Time Spent Waiting: {timeSpent}
-                </div>
-            </div>
-        </div>
+            <HStack spacing="4">
+                <Button onClick={handleBack}>
+                    Back
+                </Button>
+                <Button onClick={handleNext}>
+                    Next
+                </Button>
+            </HStack>
+        </Box>
     );
 };
 
