@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.idea/example-create-react-app-express.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.idea/vcs.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="Previous commit add MongoDB connection. Replace fetch API with axios." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
