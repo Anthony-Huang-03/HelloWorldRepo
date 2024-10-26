@@ -15,69 +15,24 @@ const HeroSelection = () => {
     }, []);
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            padding: "20px",
-            backgroundColor: "#FFF5E4",
-            height: "100vh"
-        }}>
-            <h1 style={{
-                fontSize: "24px",
-                fontFamily: "Arial, sans-serif",
-                backgroundColor: "#6A9C89",
-                padding: "10px",
-                borderRadius: "8px",
-                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-            }}>
+        <div>
+            <h1>
                 Please select someone to help:
             </h1>
 
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                marginTop: "auto",
-                width: "100%"
-            }}>
+            <div>
                 {/* Name Box */}
-                <div style={{
-                    backgroundColor: "#C1D8C3",
-                    padding: "15px",
-                    margin: "10px",
-                    width: "80%",
-                    textAlign: "center",
-                    borderRadius: "8px",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-                }}>
+                <div>
                     Name: {name}
                 </div>
 
                 {/* Email Box */}
-                <div style={{
-                    backgroundColor: "#C1D8C3",
-                    padding: "15px",
-                    margin: "10px",
-                    width: "80%",
-                    textAlign: "center",
-                    borderRadius: "8px",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-                }}>
+                <div>
                     Email: {email}
                 </div>
 
                 {/* Time Spent Waiting Box */}
-                <div style={{
-                    backgroundColor: "#C1D8C3",
-                    padding: "15px",
-                    margin: "10px",
-                    width: "80%",
-                    textAlign: "center",
-                    borderRadius: "8px",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)"
-                }}>
+                <div>
                     Time Spent Waiting: {timeSpent}
                 </div>
             </div>
