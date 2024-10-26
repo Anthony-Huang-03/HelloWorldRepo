@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Heading, Text, VStack, Center } from "@chakra-ui/react";
+import { Box, Button, Heading, Text, VStack, Center, Alert, AlertIcon } from "@chakra-ui/react";
 import Map from "../components/Map"; // Ensure this is the correct path for your Map component
 
 const ProblemIdentification = () => {
@@ -37,7 +37,13 @@ const ProblemIdentification = () => {
         <Box p="4" textAlign="center">
             <Heading size="xl" mb="4">What is your problem?</Heading>
 
-            <Text mb="4">If you are in immediate danger, please call 911!</Text>
+            {/* Centered Alert */}
+            <Center mb="4">
+                <Alert status="warning" width="100%" maxWidth="600px" mx="auto">
+                    <AlertIcon />
+                    If you are in immediate danger, please call 911!
+                </Alert>
+            </Center>
 
             <Center mb="4">
                 {location.latitude && location.longitude ? (
