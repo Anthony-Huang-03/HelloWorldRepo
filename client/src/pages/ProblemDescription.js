@@ -1,0 +1,31 @@
+import React from "react";
+import '../App.css';
+import { useNavigate } from 'react-router-dom';
+
+
+const ProblemDescription = () => {
+
+    const navigate = useNavigate();
+
+    const handleClick1 = () => {
+        navigate('/VictimMap'); 
+    };
+
+    const handleClick2 = () => {
+        navigate('/'); 
+    };
+
+    return (
+        <div>
+            <h1 className="title">What is your problem?</h1>  
+            <div className="warning">If you are in immediate danger, please call 911!</div> 
+            <div className="map"> --- MAP --- </div>
+            <div className="map"> --- MAP --- </div>
+            <div className="map"> --- MAP --- </div>
+            
+            <button onClick={handleClick2}>Back</button>
+        </div>
+    );
+};
+
+export default ProblemDescription;
