@@ -6,6 +6,7 @@ import Map from "../components/Map"; // Ensure this is the correct path for your
 const ProblemIdentification = () => {
     const navigate = useNavigate();
     const [location, setLocation] = useState({ latitude: null, longitude: null });
+    const [category, setCategory] = useState(null);
 
     // Geolocation logic to get user's current position
     useEffect(() => {
@@ -26,8 +27,10 @@ const ProblemIdentification = () => {
         }
     }, []);
 
-    const handleClick1 = () => {
-        navigate("/ProblemDescription");
+    const handleClick1 = (val) => {
+        navigate("/ProblemDescription", {
+            category: val
+        });
     };
     const handleClick2 = () => {
         navigate("/");
@@ -56,7 +59,7 @@ const ProblemIdentification = () => {
             <Text mb="4">Please select a category:</Text>
 
             <VStack spacing="4">
-                <Button onClick={handleClick1}>Vehicle Breakdowns</Button>
+                <Button onClick={() => {handleClick1("Vehicle Breakdowns")}}>Vehicle Breakdowns</Button>
                 <Button onClick={handleClick1}>Limited Food Options</Button>
                 <Button onClick={handleClick1}>Bad Weather Conditions</Button>
                 <Button onClick={handleClick1}>Running Out of Fuel</Button>

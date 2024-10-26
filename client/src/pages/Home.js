@@ -48,8 +48,8 @@ const Home = () => {
             <Heading size="xl" mb="4">Do you need help?</Heading>
 
             <Center mb="4">
-                {location.latitude && location.longitude && victims ? (
-                    <Map position={location} victims={victims} />
+                {location.latitude && location.longitude ? (
+                    <Map position={location} /> // Render the Map with the current location
                 ) : (
                     <Text>Loading map...</Text>
                 )}
