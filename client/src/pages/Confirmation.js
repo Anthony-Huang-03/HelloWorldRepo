@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Box, Button, Heading, VStack, Text } from "@chakra-ui/react";
 
 const Confirmation = () => {
     // State to hold fetched data
@@ -8,26 +9,31 @@ const Confirmation = () => {
 
     // Simulate data fetching
     useEffect(() => {
-        // You could replace this with a real API call
         setName("John Doe");
         setEmail("john.doe@example.com");
         setTimeSpent("5 minutes");
     }, []);
 
     return (
-        <div>
-            <h1>Are you sure you want to confirm? (Help-seeker will be notified and given your contact info)</h1>
+        <Box p="5" textAlign="center">
+            <Heading size="md" mb="5">
+                Are you sure you want to confirm? (Help-seeker will be notified and given your contact info)
+            </Heading>
 
-            <div>{/* Name Box */}
-                <div>Name: {name}</div>
+            <VStack spacing="4">
+                <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                    <Text><strong>Name:</strong> {name}</Text>
+                </Box>
 
-                {/* Email Box */}
-                <div>Email: {email}</div>
+                <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                    <Text><strong>Email:</strong> {email}</Text>
+                </Box>
 
-                {/* Time Spent Waiting Box */}
-                <div>Time Spent Waiting: {timeSpent}</div>
-            </div>
-        </div>
+                <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                    <Text><strong>Time Spent Waiting:</strong> {timeSpent}</Text>
+                </Box>
+            </VStack>
+        </Box>
     );
 };
 
