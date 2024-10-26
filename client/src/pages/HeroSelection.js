@@ -1,23 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Heading, Text, Button, VStack, HStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, VStack, HStack, Center } from "@chakra-ui/react";
+import Map from "../components/Map"; // Ensure the Map component is correctly imported
 
 const HeroSelection = () => {
-    // State to hold fetched data
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [timeSpent, setTimeSpent] = useState("");
+    const [location, setLocation] = useState({ latitude: null, longitude: null });
 
-    // Simulate data fetching
     useEffect(() => {
+        // Simulate data fetching
         setName("John Doe");
         setEmail("john.doe@example.com");
         setTimeSpent("5 minutes");
+
+        // Fetch geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setLocation({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    });
+                },
+                (error) => {
+                    console.error("Error getting location:", error);
+                }
+            );
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
     }, []);
 
     const navigate = useNavigate();
 
-    // Handlers for navigation buttons
     const handleBack = () => navigate("/Home");
     const handleNext = () => navigate("/ConfirmInfo");
 
@@ -26,6 +43,17 @@ const HeroSelection = () => {
             <Heading size="lg" mb="6">
                 Please select someone to help:
             </Heading>
+
+            {/* Map container */}
+            <Center mb="8">
+                <Box width="400px" height="300px" overflow="hidden">
+                    {location.latitude && location.longitude ? (
+                        <Map position={location} />
+                    ) : (
+                        <Text>Loading map...</Text>
+                    )}
+                </Box>
+            </Center>
 
             <VStack spacing="4" mb="8">
                 <Box p="4" borderRadius="md" boxShadow="md">
@@ -40,15 +68,12 @@ const HeroSelection = () => {
             </VStack>
 
             <HStack spacing="4">
-                <Button onClick={handleBack}>
-                    Back
-                </Button>
-                <Button onClick={handleNext}>
-                    Next
-                </Button>
+                <Button onClick={handleBack}>Back</Button>
+                <Button onClick={handleNext}>Next</Button>
             </HStack>
         </Box>
     );
 };
 
 export default HeroSelection;
+
