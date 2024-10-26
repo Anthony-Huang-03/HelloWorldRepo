@@ -29,7 +29,7 @@ const ProblemIdentification = () => {
 
     const handleClick1 = (val) => {
         navigate("/ProblemDescription", {
-            category: val
+            state: { category: val, latitude: location.latitude, longitude: location.longitude }
         });
     };
     const handleClick2 = () => {
@@ -59,12 +59,12 @@ const ProblemIdentification = () => {
             <Text mb="4">Please select a category:</Text>
 
             <VStack spacing="4">
-                <Button onClick={() => {handleClick1("Vehicle Breakdowns")}}>Vehicle Breakdowns</Button>
-                <Button onClick={handleClick1}>Limited Food Options</Button>
-                <Button onClick={handleClick1}>Bad Weather Conditions</Button>
-                <Button onClick={handleClick1}>Running Out of Fuel</Button>
-                <Button onClick={handleClick1}>Boredom</Button>
-                <Button onClick={handleClick1}>Fatigue and Driver Exhaustion</Button>
+                <Button onClick={() => handleClick1("Vehicle Breakdowns")}>Vehicle Breakdowns</Button>
+                <Button onClick={() => handleClick1("Limited Food Options")}>Limited Food Options</Button>
+                <Button onClick={() => handleClick1("Bad Weather Conditions")}>Bad Weather Conditions</Button>
+                <Button onClick={() => handleClick1("Running Out of Fuel")}>Running Out of Fuel</Button>
+                <Button onClick={() => handleClick1("Boredom")}>Boredom</Button>
+                <Button onClick={() => handleClick1("Fatigue and Driver Exhaustion")}>Fatigue and Driver Exhaustion</Button>
                 <Button onClick={handleClick2}>Back</Button>
             </VStack>
         </Box>

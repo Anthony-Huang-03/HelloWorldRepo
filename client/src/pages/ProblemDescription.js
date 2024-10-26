@@ -1,14 +1,12 @@
 import { Box, Heading, Text, FormControl, FormLabel, Input, Button, VStack, Alert, AlertIcon } from "@chakra-ui/react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import React, { useState } from "react";
 import axios from "axios";
 
 const ProblemDescription = () => {
-
-    const { category } = useParams();
-    console.log(category)
-
+    const location = useLocation();
     const navigate = useNavigate();
+    const { category, latitude, longitude } = location.state || {};
 
     const handleClick1 = () => {
         navigate('/VictimMap');
@@ -24,11 +22,10 @@ const ProblemDescription = () => {
         description: "",
         name: "",
         contact: "",
-        latitude: "",
-        longitude: ""
+        latitude: latitude,
+        longitude: longitude
     });
 
-    console.log(victim)
 
     const handleChange = (e) => {
         const { name, value } = e.target;
