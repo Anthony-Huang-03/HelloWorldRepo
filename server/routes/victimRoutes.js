@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getVictims, getVictimById, addVictim, updateVictim, deleteVictim } from "../controllers/victimController";
+import { getVictims, getVictimById, addVictim, updateVictim, deleteVictim } from "../controllers/victimController.js";
 
 const router = Router();
 

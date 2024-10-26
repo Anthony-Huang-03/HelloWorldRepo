@@ -1,4 +1,4 @@
-import Victim from "../models/victim";
+import Victim from "../models/victim.js";
 
 const getVictims = async(req, res) => {
     try {
