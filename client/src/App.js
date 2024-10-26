@@ -3,11 +3,28 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
+import { 
+  Box, 
+  Heading, 
+  HStack,
+  Button, 
+  Spacer, 
+  Text, 
+  Image, 
+  VStack, 
+  ChakraProvider,
+  defaultConfig,
+  defaultSystem
+  } from '@chakra-ui/react'
+
+  // import { ColorModeProvider } from './color-mode';
+
 import Navbar from "./components/NavBar";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  
 } from "react-router-dom";
 
 import Completed from "./pages/Completed";
@@ -52,7 +69,9 @@ function App() {
   // };
 
   return (
+    <ChakraProvider value={defaultSystem}>
       <div className="App">
+        <Button>HELLO</Button>
         <Router>
             <Routes>
                 <Route exact path="/" element={<Home />} />
@@ -100,6 +119,7 @@ function App() {
             </Routes>
         </Router>
       </div>
+      </ChakraProvider>
   );
 }
 
