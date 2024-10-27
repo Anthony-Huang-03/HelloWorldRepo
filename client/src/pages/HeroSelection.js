@@ -54,7 +54,7 @@ const HeroSelection = () => {
     const handleBack = () => navigate("/Home");
     const handleNext = () => {
         if (selectedVictim) {
-            navigate("/ConfirmInfo", { state: { selectedVictim } });
+            navigate("/Confirmation", { state: { selectedVictim } });
         } else {
             alert("Please select a victim first.");
         }

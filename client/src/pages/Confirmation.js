@@ -3,12 +3,13 @@ import { Box, Button, Heading, VStack, Text, Link,
     FormControl, FormLabel, Input
     
 } from "@chakra-ui/react";
-
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
 const Confirmation = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     // State to hold fetched data
     const [name, setName] = useState("");
