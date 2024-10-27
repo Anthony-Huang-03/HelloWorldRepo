@@ -51,8 +51,7 @@ const Map = ({position, victims, onMarkerSelect}) => {
                     }}
                     icon={customIcon}>
                         <Popup>
-                            {v.latitude}
-                            {v.longitude}
+                            {v.name} - {v.category}
                         </Popup>
                 </Marker>)
                 : null}
