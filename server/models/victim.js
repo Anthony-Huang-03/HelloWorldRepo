@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const victimSchema = new Schema(
     {
@@ -25,6 +25,10 @@ const victimSchema = new Schema(
         longitude: {
             type: Number,
             required: true,
+        },
+        heroId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: false
         }
     },
     {
