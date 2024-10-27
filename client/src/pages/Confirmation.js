@@ -83,7 +83,7 @@ const Confirmation = () => {
                         <FormLabel htmlFor="contact">User Email:</FormLabel>
                         <Input type="text" id="contact" name="contact" value={hero.contact} onChange={handleChange} />
                     </FormControl>
-                    <Button onClick={handleSubmit} type="submit">Submit</Button>
+                    <Button onClick={handleSubmit}>Submit</Button>
                 </VStack>
                 
 {/* 
