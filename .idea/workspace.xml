@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="add victims to map">
+      <change afterPath="$PROJECT_DIR$/client/src/assets/AsianMan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/BadWeather.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/CarCrash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/LimitedFood.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/OutOfFuel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/eepy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/VictimMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/VictimMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +84,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonat\IdeaProjects\HelloWorldRepoNEW6\client\src\assets" />
+      <recent name="C:\Users\jonat\IdeaProjects\HelloWorldRepoNEW6\client\src" />
+      <recent name="C:\Users\jonat\IdeaProjects\HelloWorldRepoNEW6\client\src\pages" />
+      <recent name="C:\Users\jonat\IdeaProjects\HelloWorldRepoNEW6\client\public\imageAssets" />
       <recent name="C:\Users\jonne\WebstormProjects\example-create-react-app-express" />
     </key>
   </component>
@@ -119,7 +130,7 @@
       <workItem from="1729954310665" duration="416000" />
       <workItem from="1729956004960" duration="2208000" />
       <workItem from="1729972071860" duration="898000" />
-      <workItem from="1729991201467" duration="645000" />
+      <workItem from="1729991201467" duration="2523000" />
     </task>
     <task id="LOCAL-00001" summary="Set up React Redux app with Express backend">
       <option name="closed" value="true" />
