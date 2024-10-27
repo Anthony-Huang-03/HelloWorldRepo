@@ -41,7 +41,7 @@ const Confirmation = () => {
             const response = await axios.post("http://localhost:5000/api/heros", hero);
             alert(response.data.message);
             navigate("/ConfirmInfo", {
-                state: { hero: response.data.hero }
+                state: { hero: response.data.hero, victim: victim }
             });
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {

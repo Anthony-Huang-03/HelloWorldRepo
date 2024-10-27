@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
     Box,
     Heading,
@@ -9,8 +9,10 @@ import {
     Link
 } from "@chakra-ui/react";
 
-const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
+const ConfirmInfo = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { hero, victim } = location.state || {};
 
     // Function to handle button clicks
     const handleButtonClick = () => {
@@ -29,10 +31,10 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
 
 
                     <Text fontSize="lg">
-                        <strong>User Name:</strong> {userName || "Loading..."}
+                        <strong>User Name:</strong> {hero.name || "Loading..."}
                     </Text>
                     <Text fontSize="lg">
-                        <strong>User Email:</strong> {userEmail || "Loading..."}
+                        <strong>User Email:</strong> {hero.contact || "Loading..."}
                     </Text>
                     
                     <Text fontSize="lg"><strong>Problem Description:</strong></Text>
@@ -45,7 +47,7 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                         overflowY="auto"
                         fontSize="md"
                     >
-                        {problemDescription || "Loading..."}
+                        {victim.category || "Loading..."}
                     </Box>
                 </VStack>
 
