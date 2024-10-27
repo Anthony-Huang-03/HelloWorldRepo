@@ -17,14 +17,12 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
         navigate("/Completed");
     };
 
-
-
     return (
         <Box display="flex" flexDirection="column" minHeight="100vh" p="6" textAlign="center">
             <Box flex="1">
                 <Heading size="lg" mb="4">Selection Confirmed!</Heading>
                 <Text fontSize="lg" mb="8">
-                    Email notification sent to the selected user.
+                    Email notification has been sent to the selected user.
                 </Text>
 
                 <VStack align="stretch" spacing="4" maxW="600px" mx="auto">
