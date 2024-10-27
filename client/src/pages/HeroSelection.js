@@ -54,7 +54,10 @@ const HeroSelection = () => {
     const handleBack = () => navigate("/Home");
     const handleNext = () => {
         if (selectedVictim) {
-            navigate("/ConfirmInfo", { state: { selectedVictim } });
+            navigate("/Confirmation", { 
+                state: { latitude: location.latitude, longitude: location.longitude,
+                    victim: selectedVictim } 
+            });
         } else {
             alert("Please select a victim first.");
         }
@@ -88,7 +91,7 @@ const HeroSelection = () => {
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Email:</Text>
-                    <Text>{selectedVictim ? selectedVictim.email : "Select a victim"}</Text>
+                    <Text>{selectedVictim ? selectedVictim.contact : "Select a victim"}</Text>
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Time Spent Waiting:</Text>

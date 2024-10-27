@@ -10,14 +10,14 @@ const heroSchema = new Schema(
             type: String,
             required: true,
         },
-        numberOfRescues: {
-            type: Number,
-            required: true,
-        },
-        reputation: {
-            type: Number,
-            required: true,
-        }
+        // numberOfRescues: {
+        //     type: Number,
+        //     required: true,
+        // },
+        // reputation: {
+        //     type: Number,
+        //     required: true,
+        // }
     },
     {
         timestamps: true

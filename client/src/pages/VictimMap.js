@@ -11,6 +11,9 @@ import OutOfFuel from '../assets/OutOfFuel.png';
 import axios from "axios";
 
 const VictimMap = () => {
+
+    const [heroIsComing, setHeroIsComing] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
     const { victim } = location.state || {};
@@ -82,6 +85,7 @@ const VictimMap = () => {
         navigate("/");
     };
 
+    
     return (
         <Flex direction="column" minHeight="100vh">
             <Center flex="1" p={4}>
@@ -123,6 +127,17 @@ const VictimMap = () => {
                                 console.log("FINISHHHHH WOOO");
                             }}>Finish</Button> : null}
                     </Flex>
+
+
+
+
+
+
+
+
+
+
+
 
                     {/* Clickable question mark for tooltip */}
                     <Box
