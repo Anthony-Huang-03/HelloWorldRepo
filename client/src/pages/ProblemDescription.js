@@ -1,7 +1,8 @@
-import { Box, Heading, Text, FormControl, FormLabel, Input, Button, VStack, Alert, AlertIcon } from "@chakra-ui/react";
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { Box, Heading, Text, FormControl, FormLabel, Input, Button, VStack, Alert, AlertIcon, Flex } from "@chakra-ui/react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import React, { useState } from "react";
 import axios from "axios";
+import Background from "../assets/Background.jpeg"; // Import your background image
 
 const ProblemDescription = () => {
     const location = useLocation();
@@ -23,7 +24,6 @@ const ProblemDescription = () => {
         longitude: longitude
     });
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setVictim({
@@ -40,44 +40,79 @@ const ProblemDescription = () => {
             navigate("/VictimMap", {
                 state: { victim: response.data.victim }
             });
-            // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding victim:", error);
             alert("There was an error adding the victim.");
         }
-        console.log("pressing submit");
     };
 
     return (
-        <Box textAlign="center" p="6">
-            <Heading size="lg" mb="4">What is your problem?</Heading>
+        <Flex
+            direction="column"
+            minHeight="100vh"
+            bgImage={`url(${Background})`}
+            bgSize="cover"
+            bgPosition="center"
+        >
+            <Box
+                bg="white" // Fully opaque white background
+                borderRadius="2xl" // More rounded edges
+                p="6" // Increased padding for more height
+                width="600px" // Adjusted width to match previous examples
+                mx="auto" // Center the box horizontally
+                mt="4" // Margin on top
+                flex="1"
+                textAlign="center"
+                maxHeight="600px" // Further increased maximum height
+                overflow="auto" // Enable scrolling if content exceeds height
+            >
+                <Heading size="lg" mb="4">What is your problem?</Heading> {/* Increased bottom margin */}
 
-            {/* 911 Warning Alert */}
-            <Alert status="warning" mb="4" justifyContent="center">
-                <AlertIcon />
-                If you are in immediate danger, please call 911!
-            </Alert>
+                {/* 911 Warning Alert */}
+                <Alert status="warning" mb="4" justifyContent="center"> {/* Increased margin bottom */}
+                    <AlertIcon />
+                    If you are in immediate danger, please call 911!
+                </Alert>
 
-            <VStack spacing="4" as="form" action="/action_page.php">
-                <FormControl>
-                    <FormLabel htmlFor="name">Name:</FormLabel>
-                    <Input type={victim.name} id="name" name="name" value={victim.name} onChange={handleChange} />
-                </FormControl>
+                <VStack spacing="4" as="form"> {/* Increased spacing for more vertical space */}
+                    <FormControl>
+                        <FormLabel htmlFor="name">Name:</FormLabel>
+                        <Input
+                            id="name"
+                            name="name"
+                            value={victim.name}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
 
-                <FormControl>
-                    <FormLabel htmlFor="contact">Email:</FormLabel>
-                    <Input type={victim.contact} id="contact" name="contact" value={victim.contact} onChange={handleChange} />
-                </FormControl>
+                    <FormControl>
+                        <FormLabel htmlFor="contact">Email:</FormLabel>
+                        <Input
+                            id="contact"
+                            name="contact"
+                            value={victim.contact}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
 
-                <FormControl>
-                    <FormLabel htmlFor="description">Description:</FormLabel>
-                    <Input type={victim.description} id="description" name="description" value={victim.description} onChange={handleChange} />
-                </FormControl>
+                    <FormControl>
+                        <FormLabel htmlFor="description">Description:</FormLabel>
+                        <Input
+                            id="description"
+                            name="description"
+                            value={victim.description}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+                </VStack>
 
-                <Button onClick={handleSubmit}>Submit</Button>
-            </VStack>
-            <Button onClick={handleClick2} mt="4">Back</Button>
-        </Box>
+                {/* Wrap buttons in a VStack for consistent spacing */}
+                <VStack spacing={4} mt="6">
+                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleClick2}>Back</Button>
+                </VStack>
+            </Box>
+        </Flex>
     );
 };
 
