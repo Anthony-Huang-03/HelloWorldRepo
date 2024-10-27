@@ -21,3 +21,6 @@ For the frontend, we leveraged React for its component-based architecture, which
 Roadie Rescue is an innovative solution that redefines roadside assistance by leveraging a community-driven approach and integrating cutting-edge technologies. Unlike traditional services that rely solely on first responders or insurance companies—both of which may deprioritize non-life-threatening incidents—this app empowers civilians to offer assistance, significantly reducing response times for stranded drivers. By utilizing the MERN stack (MongoDB, Express, React, Node) and Leaflet for precise mapping and real-time routing, the app accurately pinpoints users’ locations, addressing the challenge of locating help-seekers and enhancing safety and efficiency.
 
 The app's use of Axios for seamless API communication and React's component-based architecture ensures scalability and maintainability. A self-help guide section also empowers users to resolve minor issues themselves, combining community support, technology, and education into a comprehensive roadside assistance solution.
+
+## Note
+Made during Hello World Hackathon @ Purdue - West Lafayette Oct 27, 2024
