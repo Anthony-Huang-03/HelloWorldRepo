@@ -13,14 +13,17 @@ import {
 } from "@chakra-ui/react";
 import Background from "../assets/Background.jpeg"; // Import your background image
 import Logo from "../assets/roadieRescueLogo.png";
-import Footer from "../components/Footer"; // Import the logo
+import Footer from "../components/Footer";
+import axios from "axios";
+import { useLocation } from "react-router-dom"; // Import the logo
 
 const RateAfterHelp = () => {
     const [rating, setRating] = useState(0); // State to hold the star rating
     const [confirmVisible, setConfirmVisible] = useState(false); // State to control confirm dialog visibility
     const [isConfirmed, setIsConfirmed] = useState(false); // State to track if rating is confirmed
 
-    const [victim, setVictim] = useState(null);
+    const location = useLocation();
+    const { victim } = location.state || {};
 
     const handleStarClick = (index) => {
         if (!isConfirmed) {
@@ -35,7 +38,16 @@ const RateAfterHelp = () => {
     };
 
     const handleClick1 = () => {
-        victim.deleteVictim();
+        try {
+            axios.delete(`http://localhost:5010/api/victims/${victim.id}`)
+                .then((res) => {
+                    alert(res.data.message);
+                    navigate("/");
+                });
+        } catch (error) {
+            console.error("Error adding victim:", error);
+            alert("There was an error adding the victim.");
+        }
     };
 
     return (
@@ -97,10 +109,10 @@ const RateAfterHelp = () => {
                     </Text>
 
                     <VStack spacing={2}>
-                        <Button onClick={handleClick1()}>Helped by Helper</Button>
-                        <Button onClick={handleClick1()}>Helped by Others</Button>
-                        <Button onClick={handleClick1()}>Self-helped</Button>
-                        <Button onClick={handleClick1()}>Problem resolved itself</Button>
+                        <Button onClick={handleClick1}>Helped by Helper</Button>
+                        <Button onClick={handleClick1}>Helped by Others</Button>
+                        <Button onClick={handleClick1}>Self-helped</Button>
+                        <Button onClick={handleClick1}>Problem resolved itself</Button>
                     </VStack>
                 </Box>
             </Center>

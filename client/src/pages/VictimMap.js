@@ -80,7 +80,9 @@ const VictimMap = () => {
     };
 
     const handleClick3 = () => {
-        navigate("/RateAfterHelp");
+        navigate("/RateAfterHelp",{
+            state: { victim: victim }
+        });
     };
 
     
