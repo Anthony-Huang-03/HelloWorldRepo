@@ -18,14 +18,11 @@ const VictimMap = () => {
     const location = useLocation();
     const { victim } = location.state || {};
 
-    const [helpSent, setHelpSent] = useState(false);
     const [timeElapsed, setTimeElapsed] = useState(0);
-    const [name, setName] = useState(victim?.name || '');
-    const [email, setEmail] = useState(victim?.email || '');
     const [problemDescription, setProblemDescription] = useState(victim?.description || '');
     const [currentLocation, setCurrentLocation] = useState({ latitude: null, longitude: null });
     const [showTooltip, setShowTooltip] = useState(false);
-
+    const [hero, setHero] = useState(null);
     const [isHeroComing, setIsHeroComing] = useState(false);
 
     useEffect(() => {
@@ -41,6 +38,17 @@ const VictimMap = () => {
         };
 
         fetchData();
+
+        if (isHeroComing) {
+            axios.get(`http://localhost:5000/api/heros/${victim.heroId}`)
+                .then(res => {
+                    setHero(res.data.hero);
+                    console.log("found hero data woo");
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
 
         // Set up an interval to fetch data every 5 seconds
         const interval = setInterval(fetchData, 5000);
@@ -85,6 +93,10 @@ const VictimMap = () => {
         navigate("/");
     };
 
+    const handleClick3 = () => {
+        navigate("/RateAfterHelp");
+    };
+
     
     return (
         <Flex direction="column" minHeight="100vh">
@@ -107,25 +119,19 @@ const VictimMap = () => {
                         )}
                     </Box>
 
-                    <Text mb={2}>Name: {name}</Text>
-                    <Text mb={2}>Email: {email}</Text>
+                    <Text mb={2}>Name: {victim.name}</Text>
+                    <Text mb={2}>Email: {victim.contact}</Text>
                     <Text mb={4}>Problem Description: {problemDescription}</Text>
 
                     <Flex justify="center" mb={2}>
-                        {!helpSent ? (
-                            <Button onClick={handleClick1} mr={4}>Send Help!</Button>
+                        {!heroIsComing ? (
+                            <Text mb={2}>Help is on the way, please wait!</Text>
+                            
                         ) : (
-                            <div>
-                                <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
-                                {isHeroComing ?
-                                    <Text mb={4}>A hero is coming!</Text> : null}
-                            </div>
+                            <Text mb={2}>{hero.name} is on the way!</Text>
                         )}
+                        <Button onClick={handleClick3}>Finish</Button>
                         <Button onClick={handleClick2}>Back</Button>
-                        {isHeroComing ?
-                            <Button onClick={() => {
-                                console.log("FINISHHHHH WOOO");
-                            }}>Finish</Button> : null}
                     </Flex>
 
 

@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "server": "cd server && npm run start"
+    "server": "cd server && npm run start",
+    "client-mac": "cd client && npm run start-mac",
+    "server-mac": "cd server && npm run start-mac",
+    "dev-mac": "concurrently --kill-others-on-fail \"npm run server-mac\" \"npm run client-mac\""
   },
   "author": "",
   "license": "ISC",
