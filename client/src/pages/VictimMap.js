@@ -75,20 +75,6 @@ const VictimMap = () => {
         }
     }, []);
 
-    useEffect(() => {
-        let timer;
-        if (helpSent) {
-            timer = setInterval(() => {
-                setTimeElapsed((prev) => prev + 1);
-            }, 1000);
-        }
-        return () => clearInterval(timer);
-    }, [helpSent]);
-
-    const handleClick1 = () => {
-        setHelpSent(true);
-    };
-
     const handleClick2 = () => {
         navigate("/");
     };
