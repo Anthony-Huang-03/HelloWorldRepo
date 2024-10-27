@@ -8,6 +8,7 @@ import BadWeather from '../assets/BadWeather.png';
 import eepy from '../assets/eepy.png';
 import LimitedFood from '../assets/LimitedFood.png';
 import OutOfFuel from '../assets/OutOfFuel.png';
+import axios from "axios";
 
 const VictimMap = () => {
 
@@ -24,6 +25,29 @@ const VictimMap = () => {
     const [problemDescription, setProblemDescription] = useState(victim?.description || '');
     const [currentLocation, setCurrentLocation] = useState({ latitude: null, longitude: null });
     const [showTooltip, setShowTooltip] = useState(false);
+
+    const [isHeroComing, setIsHeroComing] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            axios.get(`http://localhost:5000/api/victims/${victim.id}"`)
+                .then(res => {
+                    console.log("Pinged" + !!res.data.victim.heroId);
+                    setIsHeroComing(!!res.data.victim.heroId);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        };
+
+        fetchData();
+
+        // Set up an interval to fetch data every 5 seconds
+        const interval = setInterval(fetchData, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
 
     useEffect(() => {
         if (navigator.geolocation) {
@@ -91,9 +115,17 @@ const VictimMap = () => {
                         {!helpSent ? (
                             <Button onClick={handleClick1} mr={4}>Send Help!</Button>
                         ) : (
-                            <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
+                            <div>
+                                <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
+                                {isHeroComing ?
+                                    <Text mb={4}>A hero is coming!</Text> : null}
+                            </div>
                         )}
                         <Button onClick={handleClick2}>Back</Button>
+                        {isHeroComing ?
+                            <Button onClick={() => {
+                                console.log("FINISHHHHH WOOO");
+                            }}>Finish</Button> : null}
                     </Flex>
 
 

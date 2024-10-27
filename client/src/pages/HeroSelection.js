@@ -52,14 +52,18 @@ const HeroSelection = () => {
     const navigate = useNavigate();
 
     const handleBack = () => navigate("/Home");
-    const handleNext = () => navigate("/Confirmation", {
-        state: { latitude: location.latitude, longitude: location.longitude }
-    });
+    const handleNext = () => {
+        if (selectedVictim) {
+            navigate("/ConfirmInfo", { state: { selectedVictim } });
+        } else {
+            alert("Please select a victim first.");
+        }
+    };
 
     const handleMarkerSelect = (marker) => {
         setSelectedVictim(marker);
         console.log(marker);
-    }
+    };
 
     return (
         <Box p="5" minH="100vh" textAlign="center">
@@ -80,11 +84,11 @@ const HeroSelection = () => {
             <VStack spacing="4" mb="8" alignItems="center">
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Name:</Text>
-                    <Text>{selectedVictim.name}</Text>
+                    <Text>{selectedVictim ? selectedVictim.name : "Select a victim"}</Text>
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Email:</Text>
-                    <Text>{selectedVictim.email}</Text>
+                    <Text>{selectedVictim ? selectedVictim.email : "Select a victim"}</Text>
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Time Spent Waiting:</Text>
