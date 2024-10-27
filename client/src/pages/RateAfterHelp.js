@@ -19,6 +19,8 @@ const RateAfterHelp = () => {
     const [confirmVisible, setConfirmVisible] = useState(false); // State to control confirm dialog visibility
     const [isConfirmed, setIsConfirmed] = useState(false); // State to track if rating is confirmed
 
+    const [victim, setVictim] = useState(null);
+
     const handleStarClick = (index) => {
         if (!isConfirmed) {
             setRating(index + 1);
@@ -29,6 +31,10 @@ const RateAfterHelp = () => {
     const handleConfirm = () => {
         setIsConfirmed(true); // Set rating as confirmed
         setConfirmVisible(false); // Hide confirm dialog
+    };
+
+    const handleClick1 = () => {
+        victim.deleteVictim();
     };
 
     return (
@@ -90,10 +96,10 @@ const RateAfterHelp = () => {
                     </Text>
 
                     <VStack spacing={2}>
-                        <Button>Helped by Helper</Button>
-                        <Button>Helped by Others</Button>
-                        <Button>Self-helped</Button>
-                        <Button>Problem resolved itself</Button>
+                        <Button onClick={handleClick1()}>Helped by Helper</Button>
+                        <Button onClick={handleClick1()}>Helped by Others</Button>
+                        <Button onClick={handleClick1()}>Self-helped</Button>
+                        <Button onClick={handleClick1()}>Problem resolved itself</Button>
                     </VStack>
                 </Box>
             </Center>

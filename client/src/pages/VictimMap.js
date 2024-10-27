@@ -101,7 +101,7 @@ const VictimMap = () => {
 
                     <Box width="400px" height="300px" mb={4} overflow="hidden" mx="auto">
                         {currentLocation.latitude && currentLocation.longitude ? (
-                            <Map position={currentLocation} />
+                            <Map position={currentLocation} icon={7}/>
                         ) : (
                             <Text>Loading map...</Text>
                         )}

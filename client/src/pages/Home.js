@@ -78,7 +78,7 @@ const Home = () => {
 
                         <Center mb="2"> {/* Reduced margin-bottom */}
                             {location.latitude && location.longitude ? (
-                                <Map position={location} />
+                                <Map position={location} icon={7} />
                             ) : (
                                 <Text>Loading map...</Text>
                             )}
