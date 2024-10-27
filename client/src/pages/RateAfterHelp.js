@@ -15,7 +15,7 @@ import Background from "../assets/Background.jpeg"; // Import your background im
 import Logo from "../assets/roadieRescueLogo.png";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { useLocation } from "react-router-dom"; // Import the logo
+import { useLocation, useNavigate } from "react-router-dom"; // Import the logo
 
 const RateAfterHelp = () => {
     const [rating, setRating] = useState(0); // State to hold the star rating
@@ -24,6 +24,7 @@ const RateAfterHelp = () => {
 
     const location = useLocation();
     const { victim } = location.state || {};
+    const navigate = useNavigate();
 
     const handleStarClick = (index) => {
         if (!isConfirmed) {
