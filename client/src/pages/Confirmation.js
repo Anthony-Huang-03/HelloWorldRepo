@@ -38,14 +38,17 @@ const Confirmation = () => {
     const handleSubmit = async () => {
         try {
             // Sending a POST request to add a new victim
-            const response = await axios.post("/api/heros", hero);
+            const response = await axios.post("http://localhost:5000/api/heros", hero);
             alert(response.data.message);
+            navigate("/ConfirmInfo", {
+                state: { hero: response.data.hero }
+            });
+            // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding hero:", error);
             alert("There was an error adding the hero.");
-            navigate('/ConfirmInfo');
         }
-        navigate('/ConfirmInfo');
+        console.log("pressing submit");
     };
 
 
@@ -68,12 +71,6 @@ const Confirmation = () => {
                 </Text>
                 <Text fontSize="lg">
                     <strong>Problem Description:</strong> {victim.description || "Loading..."}
-                </Text>
-                <Text fontSize="lg">
-                    <strong>User Name:</strong> {hero.name || "Loading..."}
-                </Text>
-                <Text fontSize="lg">
-                    <strong>User Email:</strong> {hero.contact || "Loading..."}
                 </Text>
 
                 <VStack spacing="4" as="form">
