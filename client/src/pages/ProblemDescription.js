@@ -61,8 +61,8 @@ const ProblemDescription = () => {
                 </FormControl>
 
                 <FormControl>
-                    <FormLabel htmlFor="email">Email:</FormLabel>
-                    <Input type={victim.contact} id="email" name="email" />
+                    <FormLabel htmlFor="contact">Email:</FormLabel>
+                    <Input type={victim.contact} id="contact" name="contact" />
                 </FormControl>
 
                 <FormControl>
