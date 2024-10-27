@@ -40,7 +40,7 @@ const HeroSelection = () => {
             console.error("Geolocation is not supported by this browser.");
         }
 
-        axios.get("http://localhost:5000/api/victims")
+        axios.get("http://localhost:5010/api/victims")
             .then(res => {
                 setVictims(res.data.victims);
                 console.log(res.data.victims);

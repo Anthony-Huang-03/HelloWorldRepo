@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="add victims to map">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Confirmation.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Confirmation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/HeroSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/HeroSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/VictimMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/VictimMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

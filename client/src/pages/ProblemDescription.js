@@ -35,7 +35,7 @@ const ProblemDescription = () => {
 
     const handleSubmit = async () => {
         try {
-            await axios.post("http://localhost:5000/api/victims", victim)
+            await axios.post("http://localhost:5010/api/victims", victim)
                 .then((res) => {
                     alert(res.data.message);
                     navigate("/VictimMap", {

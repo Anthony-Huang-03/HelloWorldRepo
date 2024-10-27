@@ -27,7 +27,7 @@ const VictimMap = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            axios.get(`http://localhost:5000/api/victims/${victim._id}`)
+            axios.get(`http://localhost:5010/api/victims/${victim._id}`)
                 .then(res => {
                     console.log("Pinged" + !!res.data.victim.heroId);
                     setIsHeroComing(!!res.data.victim.heroId);
@@ -40,7 +40,7 @@ const VictimMap = () => {
         fetchData();
 
         if (isHeroComing) {
-            axios.get(`http://localhost:5000/api/heros/${victim.heroId}`)
+            axios.get(`http://localhost:5010/api/heros/${victim.heroId}`)
                 .then(res => {
                     setHero(res.data.hero);
                     console.log("found hero data woo");
