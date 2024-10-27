@@ -115,7 +115,7 @@ const ProblemIdentification = () => {
                                            borderRadius="full" // Makes the corners round (full for circle)
                                          />
                                        </MenuButton>
-                                       <MenuList display="flex" flexDirection="column" alignItems="center" position="absolute" zIndex={1} minWidth="200px" onMouseEnter={onDropdownOpen} onMouseLeave={onDropdownClose} display={isModalOpen ? 'none' : 'block'}
+                                       <MenuList flexDirection="column" alignItems="center" position="absolute" zIndex={1} minWidth="200px" onMouseEnter={onDropdownOpen} onMouseLeave={onDropdownClose} display={isModalOpen ? 'none' : 'block'}
                                        >
                                        <Box display="flex" flexDirection="column" alignItems="center" padding="10px">
                                          <MenuItem as="a" href="https://www.amfam.com/resources/articles/on-the-road/11-steps-to-fix-a-flat-tire" target="_blank" rel="noopener noreferrer" w="100%">

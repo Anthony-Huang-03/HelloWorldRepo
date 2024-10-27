@@ -13,9 +13,8 @@ import {
 } from "@chakra-ui/react";
 import Background from "../assets/Background.jpeg"; // Import your background image
 import Logo from "../assets/roadieRescueLogo.png"; // Import the logo
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import RoutingMap from "../components/RoutingMap";
-
 
 const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
     const navigate = useNavigate();
@@ -32,36 +31,37 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
         <Flex
             direction="column"
             minHeight="100vh"
-            bgImage={`url(${Background})`} // Background image
+            bgImage={`url(${Background})`}
             bgSize="cover"
             bgPosition="center"
             p="6"
             textAlign="center"
         >
             {/* Logo positioned closer to the top */}
-            <Center mb={-12}> {/* Negative margin to raise the logo */}
+            <Center mb={-12}>
                 <Image
                     src={Logo}
                     alt="Roadie Rescue Logo"
-                    boxSize="250px" // Size for the logo
+                    boxSize="250px"
                 />
             </Center>
 
-            <Box flex="1" p="4" mt={8}> {/* Margin to lower the text box */}
+            <Box flex="1" p="4" mt={8}>
                 <Box
                     textAlign="center"
-                    bg="white" // White background for the main content box
+                    bg="white"
                     borderRadius="2xl"
-                    p="8" // Padding for the white box
-                    width="600px" // Width of the content box
-                    mx="auto" // Center horizontally
+                    p="8"
+                    width="800px" // Increased width
+                    mx="auto"
+                    boxShadow="lg" // Adds a shadow for better visibility
                 >
                     <Heading size="lg" mb="4">Selection Confirmed!</Heading>
                     <Text fontSize="lg" mb="8">
                         Email notification has been sent to the selected user.
                     </Text>
 
-                    <VStack align="stretch" spacing="4" maxW="600px" mx="auto">
+                    <VStack align="stretch" spacing="4" maxW="800px" mx="auto">
                         <Text fontSize="lg">
                             <strong>User Name:</strong> {victim.name || "Loading..."}
                         </Text>
@@ -71,7 +71,7 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                         <Text fontSize="lg">
                             <strong>Problem Category:</strong> {victim.category || "Loading..."}
                         </Text>
-                        <Text fontSize="lg"><strong>Problem Descriptions:</strong></Text>
+                        <Text fontSize="lg"><strong>Problem Description:</strong></Text>
                         <Box
                             p="4"
                             border="1px solid"
@@ -80,19 +80,32 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                             minH="100px"
                             overflowY="auto"
                             fontSize="md"
+                            width="100%" // Ensures it spans the full width
                         >
-                            {victim.description  || "Loading..."}
+                            {victim.description || "Loading..."}
                         </Box>
                     </VStack>
 
-                    <RoutingMap hero={hero} victim={victim}></RoutingMap>
+                    <Box
+                        mt="8"
+                        p="4"
+                        border="1px solid"
+                        borderColor="gray.300"
+                        borderRadius="md"
+                        width="100%"
+                        height="400px" // Increased height
+                        mx="auto"
+                        mb="8"
+                        overflow="hidden"
+                    >
+                        <RoutingMap hero={hero} victim={victim} />
+                    </Box>
 
-                    
                     <Heading size="md" mt="12" mb="4">
                         Please select one of the following actions upon arrival:
                     </Heading>
 
-                    <VStack spacing="4" maxW="600px" mx="auto" w="full">
+                    <VStack spacing="4" maxW="800px" mx="auto" w="full">
                         <Button onClick={handleButtonClick} w="full">
                             User successfully helped
                         </Button>
@@ -106,10 +119,8 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                 </Box>
             </Box>
 
-            {/* Contributors Box */}
-            <Footer>
-
-            </Footer>
+            {/* Contributors Footer */}
+            <Footer />
         </Flex>
     );
 };
