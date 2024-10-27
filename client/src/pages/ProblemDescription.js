@@ -37,7 +37,9 @@ const ProblemDescription = () => {
             // Sending a POST request to add a new victim
             const response = await axios.post("http://localhost:5000/api/victims", victim);
             alert(response.data.message);
-            navigate('/VictimMap');
+            navigate("/VictimMap", {
+                state: { victim: response.data.victim }
+            });
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding victim:", error);
