@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="add victims to map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/HeroSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/HeroSelection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ProblemIdentification.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ProblemIdentification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/VictimMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/VictimMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +127,7 @@
       <workItem from="1729954310665" duration="416000" />
       <workItem from="1729956004960" duration="2208000" />
       <workItem from="1729972071860" duration="898000" />
-      <workItem from="1729991201467" duration="4430000" />
+      <workItem from="1729991201467" duration="5559000" />
     </task>
     <task id="LOCAL-00001" summary="Set up React Redux app with Express backend">
       <option name="closed" value="true" />

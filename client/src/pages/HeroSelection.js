@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Heading, Text, Button, VStack, HStack, Center, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, VStack, HStack, Center, Flex, Link } from "@chakra-ui/react";
 import Map from "../components/Map";
 import axios from "axios";
 import VehicleProblem from '../assets/CarCrash.png';
@@ -148,6 +148,23 @@ const HeroSelection = () => {
                     <Button onClick={handleNext}>Next</Button>
                 </HStack>
             </Center>
+
+            {/* Footer */}
+            <Text fontSize="sm" color="gray.500" textAlign="center" mb="4" mt="20">
+                Contributors:{" "}
+                <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
+                    Jonnen Chong
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
+                    Anthony Huang
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
+                    Soleil Pham
+                </Link>, and{" "}
+                <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
+                    Jonathan Pratt
+                </Link> - 2024
+            </Text>
         </Box>
     );
 };

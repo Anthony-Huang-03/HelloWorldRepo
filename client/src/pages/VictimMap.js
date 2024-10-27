@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Box, Button, Center, Heading, Text, Alert, AlertIcon, Flex } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Text, Alert, AlertIcon, Flex, Link } from "@chakra-ui/react";
 import Map from '../components/Map'; // Ensure the Map component is imported
 import CarCrash from '../assets/CarCrash.png';
 import AsianMan from '../assets/AsianMan.png';
@@ -59,97 +59,116 @@ const VictimMap = () => {
     };
 
     return (
-        <Center height="100vh" p={4}>
-            <Box textAlign="center">
-                <Heading size="lg" mb={4}>
-                    You are here
-                </Heading>
+        <Flex direction="column" minHeight="100vh">
+            <Center flex="1" p={4}>
+                <Box textAlign="center">
+                    <Heading size="lg" mb={4}>
+                        You are here
+                    </Heading>
 
-                <Alert status="warning" mb={4}>
-                    <AlertIcon />
-                    If you are in immediate danger, please call 911!
-                </Alert>
+                    <Alert status="warning" mb={4}>
+                        <AlertIcon />
+                        If you are in immediate danger, please call 911!
+                    </Alert>
 
-                <Box width="400px" height="300px" mb={4} overflow="hidden" mx="auto">
-                    {currentLocation.latitude && currentLocation.longitude ? (
-                        <Map position={currentLocation} />
-                    ) : (
-                        <Text>Loading map...</Text>
-                    )}
-                </Box>
+                    <Box width="400px" height="300px" mb={4} overflow="hidden" mx="auto">
+                        {currentLocation.latitude && currentLocation.longitude ? (
+                            <Map position={currentLocation} />
+                        ) : (
+                            <Text>Loading map...</Text>
+                        )}
+                    </Box>
 
-                <Text mb={2}>Name: {name}</Text>
-                <Text mb={2}>Email: {email}</Text>
-                <Text mb={4}>Problem Description: {problemDescription}</Text>
+                    <Text mb={2}>Name: {name}</Text>
+                    <Text mb={2}>Email: {email}</Text>
+                    <Text mb={4}>Problem Description: {problemDescription}</Text>
 
-                <Flex justify="center" mb={2}>
-                    {!helpSent ? (
-                        <Button onClick={handleClick1} mr={4}>Send Help!</Button>
-                    ) : (
-                        <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
-                    )}
-                    <Button onClick={handleClick2}>Back</Button>
-                </Flex>
+                    <Flex justify="center" mb={2}>
+                        {!helpSent ? (
+                            <Button onClick={handleClick1} mr={4}>Send Help!</Button>
+                        ) : (
+                            <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
+                        )}
+                        <Button onClick={handleClick2}>Back</Button>
+                    </Flex>
 
-                {/* Clickable question mark for tooltip */}
-                <Box
-                    onClick={() => setShowTooltip(!showTooltip)}
-                    style={{
-                        position: 'absolute',
-                        bottom: '20px',
-                        left: '20px',
-                        cursor: 'pointer',
-                        fontSize: '24px',
-                    }}
-                >
-                    ?
-                </Box>
-
-                {/* Tooltip with images and descriptions */}
-                {showTooltip && (
+                    {/* Clickable question mark for tooltip */}
                     <Box
+                        onClick={() => setShowTooltip(!showTooltip)}
                         style={{
                             position: 'absolute',
-                            bottom: '60px',
+                            bottom: '20px',
                             left: '20px',
-                            background: 'white',
-                            border: '1px solid black',
-                            padding: '10px',
-                            borderRadius: '5px',
-                            zIndex: 1000,
-                            boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                            cursor: 'pointer',
+                            fontSize: '24px',
                         }}
                     >
-                        <Flex direction="column">
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={CarCrash} alt="Vehicle Problem" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Vehicle Problem</Text>
-                            </Flex>
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={AsianMan} alt="Bored" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Bored</Text>
-                            </Flex>
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={BadWeather} alt="Bad Weather" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Bad Weather</Text>
-                            </Flex>
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={eepy} alt="Driver Exhaustion" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Driver Exhaustion</Text>
-                            </Flex>
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={LimitedFood} alt="Limited Food" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Limited Food</Text>
-                            </Flex>
-                            <Flex direction="column" alignItems="center" mb={2}>
-                                <img src={OutOfFuel} alt="Out of Fuel" style={{ width: '80px' }} />
-                                <Text fontSize="sm">Out of Fuel</Text>
-                            </Flex>
-                        </Flex>
+                        ?
                     </Box>
-                )}
-            </Box>
-        </Center>
+
+                    {/* Tooltip with images and descriptions */}
+                    {showTooltip && (
+                        <Box
+                            style={{
+                                position: 'absolute',
+                                bottom: '60px',
+                                left: '20px',
+                                background: 'white',
+                                border: '1px solid black',
+                                padding: '10px',
+                                borderRadius: '5px',
+                                zIndex: 1000,
+                                boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                            }}
+                        >
+                            <Flex direction="column">
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={CarCrash} alt="Vehicle Problem" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Vehicle Problem</Text>
+                                </Flex>
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={AsianMan} alt="Bored" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Bored</Text>
+                                </Flex>
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={BadWeather} alt="Bad Weather" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Bad Weather</Text>
+                                </Flex>
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={eepy} alt="Driver Exhaustion" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Driver Exhaustion</Text>
+                                </Flex>
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={LimitedFood} alt="Limited Food" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Limited Food</Text>
+                                </Flex>
+                                <Flex direction="column" alignItems="center" mb={2}>
+                                    <img src={OutOfFuel} alt="Out of Fuel" style={{ width: '80px' }} />
+                                    <Text fontSize="sm">Out of Fuel</Text>
+                                </Flex>
+                            </Flex>
+                        </Box>
+                    )}
+                </Box>
+            </Center>
+
+            {/* Footer */}
+            <Text fontSize="sm" color="gray.500" textAlign="center" mb="4">
+                Contributors:{" "}
+                <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
+                    Jonnen Chong
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
+                    Anthony Huang
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
+                    Soleil Pham
+                </Link>, and{" "}
+                <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
+                    Jonathan Pratt
+                </Link> - 2024
+            </Text>
+        </Flex>
     );
 };
 
