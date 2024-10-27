@@ -39,8 +39,8 @@ const Confirmation = () => {
         try {
             // Sending a POST request to add a new victim
             const response = await axios.post("http://localhost:5000/api/heros", hero).then(() => {
-                victim.heroId = response.data.hero.id;
-                axios.put(`http://localhost:5000/api/victims/${victim.id}`, victim)
+                victim.heroId = response.data.hero._id;
+                axios.put(`http://localhost:5000/api/victims/${victim._id}`, victim)
                     .then(res => {
                         console.log("Successfully set heroId to victim");
                         alert(response.data.message);
