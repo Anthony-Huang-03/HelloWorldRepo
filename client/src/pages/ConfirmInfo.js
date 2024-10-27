@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
     Box,
     Heading,
@@ -14,8 +14,14 @@ import {
 import Background from "../assets/Background.jpeg"; // Import your background image
 import Logo from "../assets/roadieRescueLogo.png"; // Import the logo
 import Footer from "../components/Footer"
+import RoutingMap from "../components/RoutingMap";
+
+
 const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const { hero, victim } = location.state || {};
 
     // Function to handle button clicks
     const handleButtonClick = () => {
@@ -57,13 +63,15 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
 
                     <VStack align="stretch" spacing="4" maxW="600px" mx="auto">
                         <Text fontSize="lg">
-                            <strong>User Name:</strong> {userName || "Loading..."}
+                            <strong>User Name:</strong> {victim.name || "Loading..."}
                         </Text>
                         <Text fontSize="lg">
-                            <strong>User Email:</strong> {userEmail || "Loading..."}
+                            <strong>User Email:</strong> {victim.contact || "Loading..."}
                         </Text>
-
-                        <Text fontSize="lg"><strong>Problem Description:</strong></Text>
+                        <Text fontSize="lg">
+                            <strong>Problem Category:</strong> {victim.category || "Loading..."}
+                        </Text>
+                        <Text fontSize="lg"><strong>Problem Descriptions:</strong></Text>
                         <Box
                             p="4"
                             border="1px solid"
@@ -73,10 +81,13 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                             overflowY="auto"
                             fontSize="md"
                         >
-                            {problemDescription || "Loading..."}
+                            {victim.description  || "Loading..."}
                         </Box>
                     </VStack>
 
+                    <RoutingMap hero={hero} victim={victim}></RoutingMap>
+
+                    
                     <Heading size="md" mt="12" mb="4">
                         Please select one of the following actions upon arrival:
                     </Heading>

@@ -40,7 +40,7 @@ const RateAfterHelp = () => {
 
     const handleClick1 = () => {
         try {
-            axios.delete(`http://localhost:5010/api/victims/${victim.id}`)
+            axios.delete(`http://localhost:5010/api/victims/${victim._id}`)
                 .then((res) => {
                     alert(res.data.message);
                     navigate("/");

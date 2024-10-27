@@ -4,6 +4,8 @@ import { Box, Heading, Text, Button, Link as ChakraLink, Center, Image, Flex } f
 import Background from "../assets/Background.jpeg"; // Import your background image
 import Logo from "../assets/roadieRescueLogo.png";
 import Footer from "../components/Footer"; // Import the logo
+import image from "../markerIcon/thankyouGIF.webp";
+
 
 const Completed = ({ commission }) => { // Receive commission as a prop
     return (
@@ -36,11 +38,8 @@ const Completed = ({ commission }) => { // Receive commission as a prop
                     overflow="auto"
                 >
                     <Heading size="lg" mb="4">Thanks for helping!</Heading>
-
-                    <Text fontSize="lg" mb="6">
-                        <strong>Commission:</strong> {commission || "Loading..."}
-                    </Text>
-
+                    <Image src={image} padding="30px"></Image> 
+                    {/* align the photo pls */}
                     <Button as={Link} to="/Home" variant="outline" color="black">
                         Go to Home
                     </Button>

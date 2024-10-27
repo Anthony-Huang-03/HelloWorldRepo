@@ -11,11 +11,6 @@ const Confirmation = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // State to hold fetched data
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [timeSpent, setTimeSpent] = useState("");
-
     const { latitude, longitude, victim } = location.state || {};
 
     // Simulate data fetching
@@ -42,11 +37,11 @@ const Confirmation = () => {
                 .then((res) => {
                     victim.heroId = res.data.hero._id;
                     axios.put(`http://localhost:5010/api/victims/${victim._id}`, victim)
-                        .then(res => {
+                        .then(res2 => {
                             console.log("Successfully set heroId to victim");
                             alert(res.data.message);
                             navigate("/ConfirmInfo", {
-                                state: { hero: res.data.hero, victim: victim }
+                                state: { hero: res.data.hero, victim: res2.data.victim }
                             });
                         })
                         .catch(err => {
