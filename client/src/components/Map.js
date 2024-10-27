@@ -12,17 +12,13 @@ import OutOfFuel from "../markerIcon/OutOfFuel.png"
 import carBreakdown from "../markerIcon/vehicleBreakdown.png"
 import Victim from "../markerIcon/Victim.png"
 
-const Map = ({position, victims, onMarkerSelect}) => {
+const Map = ({position, icon, victims, onMarkerSelect}) => {
     const mapRef = useRef(null);
     const latitude = position.latitude;
     const longitude = position.longitude;
     const imgArr = [Boredom, BadWeather, Sleep, Hero, LimitedFood, OutOfFuel, carBreakdown, Victim];
 
-    const customIcon = L.icon({
-        iconUrl: imgArr[0], // URL to your custom marker image
-        iconSize: [80, 80], // Size of the icon [width, height]
-        iconAnchor: [40, 40], // Anchor point of the icon [horizontal, vertical]
-    });
+    
 
     return ( 
       // Make sure you set the height and width of the map container otherwise the map won't show
@@ -33,7 +29,7 @@ const Map = ({position, victims, onMarkerSelect}) => {
             />
             <Marker
                 position={[latitude, longitude]}
-                icon={customIcon}>
+                icon={imgArr[icon]}>
                     <Popup>
                         <div>
                             <h4>You are here!</h4>
@@ -42,8 +38,14 @@ const Map = ({position, victims, onMarkerSelect}) => {
             </Marker>
 
           {/* Additional map layers or components can be added here */}
-            {victims ? victims.map(v =>
-                <Marker
+            {victims ? victims.map(v =>{
+                const customIcon = L.icon({
+                    iconUrl: imgArr[0], // URL to your custom marker image
+                    iconSize: [80, 80], // Size of the icon [width, height]
+                    iconAnchor: [40, 40], // Anchor point of the icon [horizontal, vertical]
+                });
+
+                return <Marker
                     data = {v}
                     position = {[v.latitude, v.longitude]}
                     eventHandlers={{
@@ -53,7 +55,7 @@ const Map = ({position, victims, onMarkerSelect}) => {
                         <Popup>
                             {v.name} - {v.category}
                         </Popup>
-                </Marker>)
+                </Marker>})
                 : null}
         </MapContainer>
     );

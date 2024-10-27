@@ -30,7 +30,7 @@ const VictimMap = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            axios.get(`http://localhost:5000/api/victims/${victim.id}"`)
+            axios.get(`http://localhost:5000/api/victims/${victim._id}`)
                 .then(res => {
                     console.log("Pinged" + !!res.data.victim.heroId);
                     setIsHeroComing(!!res.data.victim.heroId);
@@ -101,7 +101,7 @@ const VictimMap = () => {
 
                     <Box width="400px" height="300px" mb={4} overflow="hidden" mx="auto">
                         {currentLocation.latitude && currentLocation.longitude ? (
-                            <Map position={currentLocation} />
+                            <Map position={currentLocation} icon={7}/>
                         ) : (
                             <Text>Loading map...</Text>
                         )}

@@ -1,4 +1,5 @@
 import Victim from "../models/victim.js";
+import { Types } from "mongoose";
 
 const getVictims = async(req, res) => {
     try {
@@ -11,7 +12,10 @@ const getVictims = async(req, res) => {
 
 const getVictimById = async(req, res) => {
     try {
-        const victim = await Victim.findById(req.params.id);
+        // console.log(req.params.id)
+        const victimId = new Types.ObjectId(req.params.id);
+        // console.log(victimId)
+        const victim = await Victim.findById(victimId);
         res.status(200).json({ victim });
     } catch(err) {
         throw err;

@@ -62,7 +62,7 @@ const ProblemIdentification = () => {
 
                     <Center mb="4">
                         {location.latitude && location.longitude ? (
-                            <Map position={location} />
+                            <Map position={location} icon={7}/>
                         ) : (
                             <Text>Loading map...</Text>
                         )}
