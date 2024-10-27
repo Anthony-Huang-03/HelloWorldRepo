@@ -77,7 +77,7 @@ const HeroSelection = () => {
             <Center mb="8">
                 <Box width="400px" height="300px" overflow="hidden">
                     {location.latitude && location.longitude && victims ? (
-                        <Map position={location} victims={victims} onMarkerSelect={handleMarkerSelect} />
+                        <Map position={location} victims={victims} onMarkerSelect={handleMarkerSelect} icon={3}/>
                     ) : (
                         <Text>Loading map...</Text>
                     )}
