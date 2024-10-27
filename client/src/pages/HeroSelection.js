@@ -78,11 +78,11 @@ const HeroSelection = () => {
             <VStack spacing="4" mb="8" alignItems="center">
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Name:</Text>
-                    <Text>{name}</Text>
+                    <Text>{selectedVictim.name}</Text>
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Email:</Text>
-                    <Text>{email}</Text>
+                    <Text>{selectedVictim.email}</Text>
                 </Flex>
                 <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
                     <Text fontWeight="bold">Time Spent Waiting:</Text>
