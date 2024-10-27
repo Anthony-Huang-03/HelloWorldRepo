@@ -111,9 +111,17 @@ const VictimMap = () => {
                         {!helpSent ? (
                             <Button onClick={handleClick1} mr={4}>Send Help!</Button>
                         ) : (
-                            <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
+                            <div>
+                                <Text mb={4}>Help request sent! Time elapsed: {timeElapsed} seconds</Text>
+                                {isHeroComing ?
+                                    <Text mb={4}>A hero is coming!</Text> : null}
+                            </div>
                         )}
                         <Button onClick={handleClick2}>Back</Button>
+                        {isHeroComing ?
+                            <Button onClick={() => {
+                                console.log("FINISHHHHH WOOO");
+                            }}>Finish</Button> : null}
                     </Flex>
 
                     {/* Clickable question mark for tooltip */}
