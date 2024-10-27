@@ -16,9 +16,17 @@ const Map = ({position, icon, victims, onMarkerSelect}) => {
     const mapRef = useRef(null);
     const latitude = position.latitude;
     const longitude = position.longitude;
-    const imgArr = [Boredom, BadWeather, Sleep, Hero, LimitedFood, OutOfFuel, carBreakdown, Victim];
+    const imgArr = [
+        L.icon({ iconUrl: Boredom, iconSize: [32, 32] }),
+        L.icon({ iconUrl: BadWeather, iconSize: [32, 32] }),
+        L.icon({ iconUrl: Sleep, iconSize: [32, 32] }),
+        L.icon({ iconUrl: Hero, iconSize: [32, 32] }),
+        L.icon({ iconUrl: LimitedFood, iconSize: [32, 32] }),
+        L.icon({ iconUrl: OutOfFuel, iconSize: [32, 32] }),
+        L.icon({ iconUrl: carBreakdown, iconSize: [32, 32] }),
+        L.icon({ iconUrl: Victim, iconSize: [32, 32] }),
+    ];
 
-    
 
     return ( 
       // Make sure you set the height and width of the map container otherwise the map won't show
@@ -29,7 +37,7 @@ const Map = ({position, icon, victims, onMarkerSelect}) => {
             />
             <Marker
                 position={[latitude, longitude]}
-                icon={imgArr[icon]}>
+                icon={imgArr[icon || 0]}>
                     <Popup>
                         <div>
                             <h4>You are here!</h4>
@@ -39,19 +47,13 @@ const Map = ({position, icon, victims, onMarkerSelect}) => {
 
           {/* Additional map layers or components can be added here */}
             {victims ? victims.map(v =>{
-                const customIcon = L.icon({
-                    iconUrl: imgArr[0], // URL to your custom marker image
-                    iconSize: [80, 80], // Size of the icon [width, height]
-                    iconAnchor: [40, 40], // Anchor point of the icon [horizontal, vertical]
-                });
-
                 return <Marker
                     data = {v}
                     position = {[v.latitude, v.longitude]}
                     eventHandlers={{
                         click: () => onMarkerSelect(v)
                     }}
-                    icon={customIcon}>
+                    icon={v.category ? imgArr[0] : null}>
                         <Popup>
                             {v.name} - {v.category}
                         </Popup>
