@@ -24,8 +24,8 @@ const addHero = async(req, res) => {
         const hero = new Hero({
             name: body.name,
             contact: body.contact,
-            // numberOfRescues: body.numberOfRescues,
-            // reputation: body.reputation
+            latitude: body.latitude,
+            longitude: body.longitude
         });
         const newHero = await hero.save();
         const allHeros = await Hero.find();
