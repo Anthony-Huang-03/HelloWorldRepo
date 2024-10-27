@@ -34,10 +34,11 @@ const ProblemDescription = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/victims", victim);
-            alert(response.data.message);
-            navigate("/VictimMap", {
-                state: { victim: response.data.victim }
+            const response = await axios.post("http://localhost:5000/api/victims", victim).then(() => {
+                alert(response.data.message);
+                navigate("/VictimMap", {
+                    state: { victim: response.data.victim }
+                });
             });
         } catch (error) {
             console.error("Error adding victim:", error);

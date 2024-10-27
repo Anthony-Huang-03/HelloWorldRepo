@@ -38,11 +38,21 @@ const Confirmation = () => {
     const handleSubmit = async () => {
         try {
             // Sending a POST request to add a new victim
-            const response = await axios.post("http://localhost:5000/api/heros", hero);
-            alert(response.data.message);
-            navigate("/ConfirmInfo", {
-                state: { hero: response.data.hero, victim: victim }
+            const response = await axios.post("http://localhost:5000/api/heros", hero).then(() => {
+                victim.heroId = response.data.hero.id;
+                axios.put(`http://localhost:5000/api/victims/${victim.id}`, victim)
+                    .then(res => {
+                        console.log("Successfully set heroId to victim");
+                        alert(response.data.message);
+                        navigate("/ConfirmInfo", {
+                            state: { hero: response.data.hero, victim: victim }
+                        });
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
             });
+
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding hero:", error);
