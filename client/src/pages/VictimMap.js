@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Box, Button, Center, Heading, Text, Input, Alert, AlertIcon, Flex } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Text, Alert, AlertIcon, Flex } from "@chakra-ui/react";
 import Map from '../components/Map'; // Ensure the Map component is imported
 
 const VictimMap = () => {
     const navigate = useNavigate();
-    const [location, setLocation] = useState({ latitude: null, longitude: null });
+    const location = useLocation();
+    const { victim } = location.state || {};
+
     const [helpSent, setHelpSent] = useState(false); // State to track if help request has been sent
     const [timeElapsed, setTimeElapsed] = useState(0); // State to track time elapsed
 
-    const [name, setName] = useState(''); // State for name input
-    const [email, setEmail] = useState(''); // State for email input
-    const [problemDescription, setProblemDescription] = useState(''); // State for problem description input
+    // Use victim's info if available
+    const [name, setName] = useState(victim?.name || '');
+    const [email, setEmail] = useState(victim?.email || '');
+    const [problemDescription, setProblemDescription] = useState(victim?.description || '');
 
-    const { victim } = location.state || {};
+    const [currentLocation, setCurrentLocation] = useState({ latitude: null, longitude: null });
 
     console.log(victim);
-    
+
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    setLocation({
+                    setCurrentLocation({
                         latitude: position.coords.latitude,
                         longitude: position.coords.longitude,
                     });
@@ -68,32 +71,17 @@ const VictimMap = () => {
 
                 {/* Centered Larger Map */}
                 <Box width="400px" height="300px" mb={4} overflow="hidden" mx="auto">
-                    {location.latitude && location.longitude ? (
-                        <Map position={location} />
+                    {currentLocation.latitude && currentLocation.longitude ? (
+                        <Map position={currentLocation} />
                     ) : (
                         <Text>Loading map...</Text>
                     )}
                 </Box>
 
-                {/* Input fields for name, email, and problem description */}
-                <Input
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    mb={4}
-                />
-                <Input
-                    placeholder="Your Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    mb={4}
-                />
-                <Input
-                    placeholder="Your Problem Description"
-                    value={problemDescription}
-                    onChange={(e) => setProblemDescription(e.target.value)}
-                    mb={4}
-                />
+                {/* Display victim's name, email, and problem description */}
+                <Text mb={2}>Name: {name}</Text>
+                <Text mb={2}>Email: {email}</Text>
+                <Text mb={4}>Problem Description: {problemDescription}</Text>
 
                 {/* Buttons with horizontal space between them */}
                 <Flex justify="center" mb={2}>
