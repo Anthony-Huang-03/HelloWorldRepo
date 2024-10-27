@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Heading, Text, VStack, Center, Alert, AlertIcon, Link, Flex } from "@chakra-ui/react";
 import Map from "../components/Map"; // Ensure this is the correct path for your Map component
-import Background from "../assets/Background.jpeg"; // Import your background image
+import Background from "../assets/Background.jpeg";
+import Footer from "../components/Footer"; // Import your background image
 
 const ProblemIdentification = () => {
     const navigate = useNavigate();
@@ -81,32 +82,10 @@ const ProblemIdentification = () => {
                 </Box>
             </Box>
 
-            {/* Footer Box */}
-            <Box
-                border="1px"
-                borderColor="gray.200"
-                borderRadius="2xl" // More rounded edges
-                p="4"
-                mt="6"
-                textAlign="center"
-                bg="white" // Fully opaque white background
-            >
-                <Text fontSize="sm" color="gray.500">
-                    Contributors:{" "}
-                    <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
-                        Jonnen Chong
-                    </Link>,{" "}
-                    <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
-                        Anthony Huang
-                    </Link>,{" "}
-                    <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
-                        Soleil Pham
-                    </Link>, and{" "}
-                    <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
-                        Jonathan Pratt
-                    </Link> - 2024
-                </Text>
-            </Box>
+            {/* Contributors Box */}
+            <Footer>
+
+            </Footer>
         </Flex>
     );
 };
