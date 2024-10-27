@@ -33,7 +33,7 @@ const Confirmation = () => {
                 .then((res) => {
                     victim.heroId = res.data.hero._id;
                     axios.put(`http://localhost:5010/api/victims/${victim._id}`, victim)
-                        .then(res => {
+                        .then(res2 => {
                             console.log("Successfully set heroId to victim");
                             alert(res.data.message);
                             navigate("/ConfirmInfo", {
@@ -44,12 +44,15 @@ const Confirmation = () => {
                             console.log(err);
                         });
                 });
+            // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding hero:", error);
             alert("There was an error adding the hero.");
         }
         console.log("pressing submit");
     };
+
+
 
     return (
         <Box
@@ -78,60 +81,64 @@ const Confirmation = () => {
                     </Heading>
                 </Box>
 
-                {/* Victim Info Box */}
-                <Box
-                    p="3" // Consistent padding
-                    borderRadius="md"
-                    boxShadow="lg"
-                    bg="white"
-                    mb="4"
-                    width="600px" // Set to match footer width
-                    mx="auto" // Center the box horizontally
-                >
-                    <Text fontSize="md">
-                        <strong>Rescuee Name:</strong> {victim.name || "Loading..."}
-                    </Text>
-                    <Text fontSize="md">
-                        <strong>Rescuee Email:</strong> {victim.contact || "Loading..."}
-                    </Text>
-                    <Text fontSize="md">
-                        <strong>Problem Category:</strong> {victim.category || "Loading..."}
-                    </Text>
-                    <Text fontSize="md">
-                        <strong>Problem Description:</strong> {victim.description || "Loading..."}
-                    </Text>
-                </Box>
+                <Text fontSize="lg">
+                    <strong>Rescuee Name:</strong> {victim.name || "Loading..."}
+                </Text>
+                <Text fontSize="lg">
+                    <strong>Rescuee Email:</strong> {victim.contact || "Loading..."}
+                </Text>
+                <Text fontSize="lg">
+                    <strong>Problem Category:</strong> {victim.category || "Loading..."}
+                </Text>
+                <Text fontSize="lg">
+                    <strong>Problem Description:</strong> {victim.description || "Loading..."}
+                </Text>
 
-                {/* User Input Box */}
-                <Box
-                    p="3" // Consistent padding
-                    borderRadius="md"
-                    boxShadow="lg"
-                    bg="white"
-                    mb="4"
-                    width="600px" // Set to match footer width
-                    mx="auto" // Center the box horizontally
-                >
-                    <VStack spacing="3" as="form">
-                        <FormControl>
-                            <FormLabel htmlFor="name">User Name:</FormLabel>
-                            <Input type="text" id="name" name="name" value={hero.name} onChange={handleChange} />
-                        </FormControl>
+                <VStack spacing="4" as="form">
+                    <FormControl>
+                        <FormLabel htmlFor="name">User Name:</FormLabel>
+                        <Input type="text" id="name" name="name" value={hero.name} onChange={handleChange} />
+                    </FormControl>
 
-                        <FormControl>
-                            <FormLabel htmlFor="contact">User Email:</FormLabel>
-                            <Input type="text" id="contact" name="contact" value={hero.contact} onChange={handleChange} />
-                        </FormControl>
+                    <FormControl>
+                        <FormLabel htmlFor="contact">User Email:</FormLabel>
+                        <Input type="text" id="contact" name="contact" value={hero.contact} onChange={handleChange} />
+                    </FormControl>
+                    <Button onClick={handleSubmit}>Submit</Button>
+                </VStack>
+                
+{/* 
+                <VStack spacing="4">
+                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                        <Text><strong>Name:</strong> {name}</Text>
+                    </Box>
 
-                        <Button onClick={handleSubmit} bg="white" color="black" _hover={{ bg: "gray.200" }}>
-                            Submit
-                        </Button>
-                    </VStack>
-                </Box>
+                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                        <Text><strong>Email:</strong> {email}</Text>
+                    </Box>
+
+                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
+                        <Text><strong>Time Spent Waiting:</strong> {timeSpent}</Text>
+                    </Box>
+
+                </VStack> */}
             </Box>
 
-            {/* Contributors Box (Footer) */}
-            <Footer />
+            <Text fontSize="sm" color="gray.500" textAlign="center" mb="4">
+                Contributors:{" "}
+                <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
+                    Jonnen Chong
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
+                    Anthony Huang
+                </Link>,{" "}
+                <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
+                    Soleil Pham
+                </Link>, and{" "}
+                <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
+                    Jonathan Pratt
+                </Link> - 2024
+            </Text>
         </Box>
     );
 };
