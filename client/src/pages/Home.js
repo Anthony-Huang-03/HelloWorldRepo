@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Heading, Text, VStack, Center, Link, Flex } from "@chakra-ui/react";
+import { Box, Button, Heading, Text, VStack, Center, Link, Flex, Image } from "@chakra-ui/react";
 import Map from "../components/Map";
 import TypewriterAndInverseEffect from './TypewriterAndInverseEffect';
 import Background from "../assets/Background.jpeg";
+import Logo from "../assets/roadieRescueLogo.png"; // Import the logo
 
 const Home = () => {
     const navigate = useNavigate();
@@ -51,8 +52,20 @@ const Home = () => {
                     width="600px" // Adjusted width to decrease horizontal size again
                     mx="auto" // Center the box horizontally
                     mt="4" // Margin on top
+                    position="relative" // Set position relative for absolute positioning of logo
                 >
-                    <Box textAlign="center">
+                    {/* Logo positioned at the top left */}
+                    <Image
+                        src={Logo}
+                        alt="Roadie Rescue Logo"
+                        boxSize="150px" // Increased size for a larger logo
+                        position="absolute"
+                        top="10px" // Adjust vertical position
+                        left="10px" // Adjust horizontal position
+                        transform="translate(-50%, -50%)" // Center the image at the corner
+                    />
+
+                    <Box textAlign="center" pt="10"> {/* Add padding to push content down */}
                         <Heading size="xl" mb="2"> {/* Reduced margin-bottom */}
                             <TypewriterAndInverseEffect
                                 lines={[
