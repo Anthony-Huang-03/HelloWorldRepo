@@ -17,6 +17,8 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
         navigate("/Completed");
     };
 
+
+
     return (
         <Box display="flex" flexDirection="column" minHeight="100vh" p="6" textAlign="center">
             <Box flex="1">
@@ -26,12 +28,15 @@ const ConfirmInfo = ({ userName, userEmail, problemDescription }) => {
                 </Text>
 
                 <VStack align="stretch" spacing="4" maxW="600px" mx="auto">
+
+
                     <Text fontSize="lg">
                         <strong>User Name:</strong> {userName || "Loading..."}
                     </Text>
                     <Text fontSize="lg">
                         <strong>User Email:</strong> {userEmail || "Loading..."}
                     </Text>
+                    
                     <Text fontSize="lg"><strong>Problem Description:</strong></Text>
                     <Box
                         p="4"

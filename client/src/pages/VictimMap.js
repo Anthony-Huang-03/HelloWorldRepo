@@ -10,6 +10,9 @@ import LimitedFood from '../assets/LimitedFood.png';
 import OutOfFuel from '../assets/OutOfFuel.png';
 
 const VictimMap = () => {
+
+    const [heroIsComing, setHeroIsComing] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
     const { victim } = location.state || {};
@@ -58,6 +61,7 @@ const VictimMap = () => {
         navigate("/");
     };
 
+    
     return (
         <Flex direction="column" minHeight="100vh">
             <Center flex="1" p={4}>
@@ -91,6 +95,17 @@ const VictimMap = () => {
                         )}
                         <Button onClick={handleClick2}>Back</Button>
                     </Flex>
+
+
+
+
+
+
+
+
+
+
+
 
                     {/* Clickable question mark for tooltip */}
                     <Box

@@ -52,7 +52,9 @@ const HeroSelection = () => {
     const navigate = useNavigate();
 
     const handleBack = () => navigate("/Home");
-    const handleNext = () => navigate("/ConfirmInfo");
+    const handleNext = () => navigate("/Confirmation", {
+        state: { latitude: location.latitude, longitude: location.longitude }
+    });
 
     const handleMarkerSelect = (marker) => {
         setSelectedVictim(marker);
