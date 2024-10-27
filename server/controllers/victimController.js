@@ -27,7 +27,8 @@ const addVictim = async(req, res) => {
             name: body.name,
             contact: body.contact,
             latitude: body.latitude,
-            longitude: body.longitude
+            longitude: body.longitude,
+            heroId: body.heroId
         });
         const newVictim = await victim.save();
         const allVictims = await Victim.find();

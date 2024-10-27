@@ -35,25 +35,16 @@ const ProblemDescription = () => {
     const handleSubmit = async () => {
         try {
             // Sending a POST request to add a new victim
-            const response = await axios.post("/api/victims", victim)
-                .then(res => {
-                    setAddedVictim(res.data.victim);
-                    console.log(res.data.victim);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-
+            const response = await axios.post("/api/victims", victim);
             alert(response.data.message);
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding victim:", error);
             alert("There was an error adding the victim.");
+            navigate('/VictimMap');
         }
         console.log("pressing submit");
-        navigate('/VictimMap', {
-            state: { victim: addedVictim }
-        });
+        navigate('/VictimMap');
     };
 
     return (
@@ -69,20 +60,20 @@ const ProblemDescription = () => {
             <VStack spacing="4" as="form" action="/action_page.php">
                 <FormControl>
                     <FormLabel htmlFor="name">Name:</FormLabel>
-                    <Input type={victim.name} id="name" name="name" />
+                    <Input type={victim.name} id="name" name="name" value={victim.name} onChange={handleChange} />
                 </FormControl>
 
                 <FormControl>
                     <FormLabel htmlFor="contact">Email:</FormLabel>
-                    <Input type={victim.contact} id="contact" name="contact" />
+                    <Input type={victim.contact} id="contact" name="contact" value={victim.contact} onChange={handleChange} />
                 </FormControl>
 
                 <FormControl>
                     <FormLabel htmlFor="description">Description:</FormLabel>
-                    <Input type={victim.description} id="description" name="description" />
+                    <Input type={victim.description} id="description" name="description" value={victim.description} onChange={handleChange} />
                 </FormControl>
 
-                <Button onClick={() => handleSubmit()} type="submit">Submit</Button>
+                <Button onClick={handleSubmit} type="submit">Submit</Button>
             </VStack>
             <Button onClick={handleClick2} mt="4">Back</Button>
         </Box>
