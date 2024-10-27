@@ -1,16 +1,50 @@
-import React from "react";
 import { Box, Heading, Text, FormControl, FormLabel, Input, Button, VStack, Alert, AlertIcon } from "@chakra-ui/react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
 
 const ProblemDescription = () => {
+    const location = useLocation();
     const navigate = useNavigate();
+    const [addedVictim, setAddedVictim] = useState(null);
 
-    const handleClick1 = () => {
-        navigate('/VictimMap');
-    };
+    const { category, latitude, longitude } = location.state || {};
 
     const handleClick2 = () => {
         navigate('/');
+    };
+
+    const [victim, setVictim] = useState({
+        category: category,
+        description: "",
+        name: "",
+        contact: "",
+        latitude: latitude,
+        longitude: longitude
+    });
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setVictim({
+            ...victim,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = async () => {
+        try {
+            // Sending a POST request to add a new victim
+            const response = await axios.post("/api/victims", victim);
+            alert(response.data.message);
+            // Optionally, update local state or fetch updated data if necessary
+        } catch (error) {
+            console.error("Error adding victim:", error);
+            alert("There was an error adding the victim.");
+            navigate('/VictimMap');
+        }
+        console.log("pressing submit");
+        navigate('/VictimMap');
     };
 
     return (
@@ -23,24 +57,23 @@ const ProblemDescription = () => {
                 If you are in immediate danger, please call 911!
             </Alert>
 
-            <Box mb="6">--- MAP ---</Box>
             <VStack spacing="4" as="form" action="/action_page.php">
                 <FormControl>
                     <FormLabel htmlFor="name">Name:</FormLabel>
-                    <Input type="text" id="name" name="name" />
+                    <Input type={victim.name} id="name" name="name" value={victim.name} onChange={handleChange} />
                 </FormControl>
 
                 <FormControl>
-                    <FormLabel htmlFor="email">Email:</FormLabel>
-                    <Input type="text" id="email" name="email" />
+                    <FormLabel htmlFor="contact">Email:</FormLabel>
+                    <Input type={victim.contact} id="contact" name="contact" value={victim.contact} onChange={handleChange} />
                 </FormControl>
 
                 <FormControl>
                     <FormLabel htmlFor="description">Description:</FormLabel>
-                    <Input type="text" id="description" name="description" />
+                    <Input type={victim.description} id="description" name="description" value={victim.description} onChange={handleChange} />
                 </FormControl>
 
-                <Button onClick={handleClick1} type="submit">Submit</Button>
+                <Button onClick={handleSubmit} type="submit">Submit</Button>
             </VStack>
             <Button onClick={handleClick2} mt="4">Back</Button>
         </Box>

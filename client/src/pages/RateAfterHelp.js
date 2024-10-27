@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import {
+    Box,
+    Button,
+    Center,
+    Heading,
+    Text,
+    VStack,
+    HStack,
+} from "@chakra-ui/react";
 
 const RateAfterHelp = () => {
     const [rating, setRating] = useState(0); // State to hold the star rating
@@ -18,79 +27,48 @@ const RateAfterHelp = () => {
     };
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh",
-            backgroundColor: "#FFF5E4", // Light blue background color
-            color: "#000000", // Black text color
-            fontFamily: "Arial, sans-serif",
-            padding: "20px"
-        }}>
-            <h1 style={{ fontSize: "24px", textAlign: "center", marginBottom: "20px" }}>
-                Rate this guide/helper:
-            </h1>
+        <Center height="100vh" p={4}>
+            <Box textAlign="center">
+                <Heading size="lg" mb={4}>
+                    Rate this guide/helper:
+                </Heading>
 
-            <div style={{
-                marginBottom: "30px",
-                display: "flex",
-                justifyContent: "center"
-            }}>
-                {[...Array(5)].map((_, index) => (
-                    <span
-                        key={index}
-                        onClick={() => handleStarClick(index)}
-                        style={{
-                            fontSize: "40px",
-                            cursor: isConfirmed ? "default" : "pointer",
-                            color: index < rating ? "#FFD700" : "#C1D8C3" // Gold for selected, light color for unselected
-                        }}
-                    >
-                        ★
-                    </span>
-                ))}
-            </div>
+                <HStack spacing={4} mb={4} justify="center">
+                    {[...Array(5)].map((_, index) => (
+                        <span
+                            key={index}
+                            onClick={() => handleStarClick(index)}
+                            style={{
+                                fontSize: "40px",
+                                cursor: isConfirmed ? "default" : "pointer",
+                                color: index < rating ? "#FFD700" : "#C1D8C3", // Gold for selected, light color for unselected
+                            }}
+                        >
+                            ★
+                        </span>
+                    ))}
+                </HStack>
 
-            {confirmVisible && !isConfirmed && ( // Show confirm dialog only if not confirmed
-                <div style={{ marginBottom: "20px", textAlign: "center" }}>
-                    <p>Confirm rating?</p>
-                    <button onClick={handleConfirm} style={buttonStyle}>Yes</button>
-                </div>
-            )}
+                {confirmVisible && !isConfirmed && ( // Show confirm dialog only if not confirmed
+                    <Box mb={4}>
+                        <Text>Confirm rating?</Text>
+                        <Button onClick={handleConfirm}>Yes</Button>
+                    </Box>
+                )}
 
-            <h2 style={{ fontSize: "20px", marginBottom: "20px" }}>
-                Please select one of the following actions:
-            </h2>
+                <Text fontSize="lg" mb={4}>
+                    Please select one of the following actions:
+                </Text>
 
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                width: "80%",
-                maxWidth: "400px"
-            }}>
-                <button style={buttonStyle} disabled={isConfirmed}>Helped by Helper</button>
-                <button style={buttonStyle} disabled={isConfirmed}>Helped by Others</button>
-                <button style={buttonStyle} disabled={isConfirmed}>Self-helped</button>
-                <button style={buttonStyle} disabled={isConfirmed}>Problem resolved itself</button>
-            </div>
-        </div>
+                <VStack spacing={2}>
+                    <Button>Helped by Helper</Button>
+                    <Button>Helped by Others</Button>
+                    <Button>Self-helped</Button>
+                    <Button>Problem resolved itself</Button>
+                </VStack>
+            </Box>
+        </Center>
     );
-};
-
-// Button style shared across buttons
-const buttonStyle = {
-    backgroundColor: "#C1D8C3",
-    color: "#000000",
-    border: "none",
-    borderRadius: "8px",
-    padding: "10px 20px",
-    margin: "5px 0",
-    cursor: "pointer",
-    fontSize: "18px",
-    width: "100%"
 };
 
 export default RateAfterHelp;
