@@ -7,7 +7,7 @@
     <list default="true" id="9a265f41-32c4-4709-a536-2179783e4b00" name="Changes" comment="add victims to map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ProblemDescription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/RateAfterHelp.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/RateAfterHelp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/VictimMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/VictimMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,11 +173,23 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Set up React Redux app with Express backend" />
     <MESSAGE value="Refactor old react code to new react code." />
     <MESSAGE value="Previous commit add MongoDB connection. Replace fetch API with axios." />
     <MESSAGE value="add victims to map" />
-    <option name="LAST_COMMIT_MESSAGE" value="add victims to map" />
+    <MESSAGE value="fix condition in hero selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix condition in hero selection" />
   </component>
 </project>

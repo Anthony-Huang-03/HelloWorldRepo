@@ -35,16 +35,15 @@ const ProblemDescription = () => {
     const handleSubmit = async () => {
         try {
             // Sending a POST request to add a new victim
-            const response = await axios.post("/api/victims", victim);
+            const response = await axios.post("http://localhost:5000/api/victims", victim);
             alert(response.data.message);
+            navigate('/VictimMap');
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding victim:", error);
             alert("There was an error adding the victim.");
-            navigate('/VictimMap');
         }
         console.log("pressing submit");
-        navigate('/VictimMap');
     };
 
     return (
@@ -73,7 +72,7 @@ const ProblemDescription = () => {
                     <Input type={victim.description} id="description" name="description" value={victim.description} onChange={handleChange} />
                 </FormControl>
 
-                <Button onClick={handleSubmit} type="submit">Submit</Button>
+                <Button onClick={handleSubmit}>Submit</Button>
             </VStack>
             <Button onClick={handleClick2} mt="4">Back</Button>
         </Box>
