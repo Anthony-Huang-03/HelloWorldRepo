@@ -1,13 +1,4 @@
 import React, { useState } from "react";
-import {
-    Box,
-    Button,
-    Center,
-    Heading,
-    Text,
-    VStack,
-    HStack,
-} from "@chakra-ui/react";
 
 const RateAfterHelp = () => {
     const [rating, setRating] = useState(0); // State to hold the star rating
@@ -69,6 +60,19 @@ const RateAfterHelp = () => {
             </Box>
         </Center>
     );
+};
+
+// Button style shared across buttons
+const buttonStyle = {
+    backgroundColor: "#C1D8C3",
+    color: "#000000",
+    border: "none",
+    borderRadius: "8px",
+    padding: "10px 20px",
+    margin: "5px 0",
+    cursor: "pointer",
+    fontSize: "18px",
+    width: "100%"
 };
 
 export default RateAfterHelp;

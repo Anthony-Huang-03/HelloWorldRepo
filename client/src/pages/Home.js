@@ -38,6 +38,15 @@ const Home = () => {
         } else {
             console.error("Geolocation is not supported by this browser.");
         }
+
+        axios.get("http://localhost:5000/api/victims")
+            .then(res => {
+                setVictims(res.data.victims);
+                console.log(res.data.victims);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }, []);
 
     return (

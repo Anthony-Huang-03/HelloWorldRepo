@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
@@ -26,34 +26,6 @@ import RateAfterHelp from "./pages/RateAfterHelp";
 import VictimMap from "./pages/VictimMap";
 
 function App() {
-  // const [response, setResponse] = useState('');
-  // const [post, setPost] = useState('');
-  // const [responseToPost, setResponseToPost] = useState('');
-
-  // This will call a GET request and set 'response' to the property express.
-  // useEffect(() => {
-  //   axios.get('/api/hello')
-  //       .then(res => {
-  //         console.log("GET data:", res.data);
-  //         setResponse(res.data.express);
-  //       })
-  //       .catch(err => console.log(err));
-  // }, []);
-
-  // const handleSubmit = async e => {
-  //   e.preventDefault();
-  //     axios.post('/api/world', {
-  //         post: post
-  //     })
-  //         .then(function (response) {
-  //             console.log(response);
-  //             setResponseToPost(response.data);
-  //         })
-  //         .catch(function (error) {
-  //             console.log(error);
-  //         });
-  // };
-
   return (
       <div className="App">
         <Router>
