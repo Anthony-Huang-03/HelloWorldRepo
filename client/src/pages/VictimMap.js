@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Box, Button, Center, Heading, Text, Input, Alert, AlertIcon, Flex } from "@chakra-ui/react";
 import Map from '../components/Map'; // Ensure the Map component is imported
 
@@ -13,6 +13,10 @@ const VictimMap = () => {
     const [email, setEmail] = useState(''); // State for email input
     const [problemDescription, setProblemDescription] = useState(''); // State for problem description input
 
+    const { victim } = location.state || {};
+
+    console.log(victim);
+    
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(

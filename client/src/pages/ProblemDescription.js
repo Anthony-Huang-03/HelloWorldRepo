@@ -6,6 +6,8 @@ import axios from "axios";
 const ProblemDescription = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const [addedVictim, setAddedVictim] = useState(null);
+
     const { category, latitude, longitude } = location.state || {};
 
     const handleClick2 = () => {
@@ -33,7 +35,15 @@ const ProblemDescription = () => {
     const handleSubmit = async () => {
         try {
             // Sending a POST request to add a new victim
-            const response = await axios.post("/api/victims", victim);
+            const response = await axios.post("/api/victims", victim)
+                .then(res => {
+                    setAddedVictim(res.data.victim);
+                    console.log(res.data.victim);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
             alert(response.data.message);
             // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
@@ -41,7 +51,9 @@ const ProblemDescription = () => {
             alert("There was an error adding the victim.");
         }
         console.log("pressing submit");
-        navigate('/VictimMap');
+        navigate('/VictimMap', {
+            state: { victim: addedVictim }
+        });
     };
 
     return (
@@ -70,7 +82,7 @@ const ProblemDescription = () => {
                     <Input type={victim.description} id="description" name="description" />
                 </FormControl>
 
-                <Button onClick={handleSubmit} type="submit">Submit</Button>
+                <Button onClick={() => handleSubmit()} type="submit">Submit</Button>
             </VStack>
             <Button onClick={handleClick2} mt="4">Back</Button>
         </Box>
