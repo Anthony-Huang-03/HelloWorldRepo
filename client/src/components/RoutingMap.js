@@ -62,9 +62,17 @@ const Routing = ({ hero, victim }) => {
         }).addTo(map);
 
         return () => {
-            if (routingControl) {
-                routingControl.getPlan().setWaypoints([]); // Clear waypoints to remove the route
-                map.removeControl(routingControl); // Remove the control from the map
+            if (routingControl && map) {
+                try {
+                    // Clear waypoints safely
+                    routingControl.getPlan().setWaypoints([]);
+                    // Check if the routing control exists on the map before removing it
+                    if (routingControl._line && routingControl._line._map) {
+                        map.removeControl(routingControl);
+                    }
+                } catch (error) {
+                    console.error("Error removing routing control:", error);
+                }
             }
         };
     }, [map, hero, victim]);

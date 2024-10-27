@@ -35,7 +35,7 @@ const Confirmation = () => {
                     axios.put(`http://localhost:5010/api/victims/${victim._id}`, victim)
                         .then(res2 => {
                             console.log("Successfully set heroId to victim");
-                            alert(res.data.message);
+                            alert("Successfully confirm user action.");
                             navigate("/ConfirmInfo", {
                                 state: { hero: res.data.hero, victim: victim },
                             });
@@ -46,7 +46,7 @@ const Confirmation = () => {
                 });
         } catch (error) {
             console.error("Error adding hero:", error);
-            alert("There was an error adding the hero.");
+            alert("There was an error storing user information.");
         }
         console.log("pressing submit");
     };

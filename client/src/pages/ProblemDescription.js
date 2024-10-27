@@ -37,7 +37,7 @@ const ProblemDescription = () => {
         try {
             await axios.post("http://localhost:5010/api/victims", victim)
                 .then((res) => {
-                    alert(res.data.message);
+                    alert("Help request sent");
                     navigate("/VictimMap", {
                         state: { victim: res.data.victim }
                     });

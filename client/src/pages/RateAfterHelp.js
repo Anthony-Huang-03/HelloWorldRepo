@@ -42,12 +42,12 @@ const RateAfterHelp = () => {
         try {
             axios.delete(`http://localhost:5010/api/victims/${victim._id}`)
                 .then((res) => {
-                    alert(res.data.message);
+                    alert("feedback recieved");
                     navigate("/");
                 });
         } catch (error) {
             console.error("Error adding victim:", error);
-            alert("There was an error adding the victim.");
+            alert("There was an error in recieving feedback.");
         }
     };
 

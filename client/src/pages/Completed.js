@@ -7,7 +7,7 @@ import Footer from "../components/Footer"; // Import the logo
 import image from "../markerIcon/thankyouGIF.webp";
 
 
-const Completed = ({ commission }) => { // Receive commission as a prop
+const Completed = () => { // Receive commission as a prop
     return (
         <Flex
             direction="column"

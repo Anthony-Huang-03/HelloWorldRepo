@@ -104,7 +104,6 @@ const VictimMap = () => {
                             <Text color="black">{!heroIsComing ? "Help is on the way, please wait!" : `${hero.name} is on the way!`}</Text>
                         </Box>
                         <Button onClick={handleClick3} colorScheme="blue" ml={2}>Finish</Button>
-                        <Button onClick={handleClick2} colorScheme="gray" ml={2}>Back</Button>
                     </Flex>
 
                     {/* Tooltip Question Mark Box */}
