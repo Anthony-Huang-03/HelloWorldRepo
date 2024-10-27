@@ -117,34 +117,34 @@ const VictimMap = () => {
                             padding: '10px',
                             borderRadius: '5px',
                             zIndex: 1000,
-                            boxShadow: '0 0 10px rgba(0,0,0,0.5)'
+                            boxShadow: '0 0 10px rgba(0,0,0,0.5)',
                         }}
                     >
                         <Flex direction="column">
-                            <Box mb={2}>
-                                <img src={CarCrash} alt="Description 1" style={{ width: '100px' }} />
-                                <Text>Description 1</Text>
-                            </Box>
-                            <Box mb={2}>
-                                <img src={AsianMan} alt="Description 2" style={{ width: '100px' }} />
-                                <Text>Description 2</Text>
-                            </Box>
-                            <Box mb={2}>
-                                <img src={BadWeather} alt="Description 3" style={{ width: '100px' }} />
-                                <Text>Description 3</Text>
-                            </Box>
-                            <Box mb={2}>
-                                <img src={eepy} alt="Description 4" style={{ width: '100px' }} />
-                                <Text>Description 4</Text>
-                            </Box>
-                            <Box mb={2}>
-                                <img src={LimitedFood} alt="Description 5" style={{ width: '100px' }} />
-                                <Text>Description 5</Text>
-                            </Box>
-                            <Box mb={2}>
-                                <img src={OutOfFuel} alt="Description 6" style={{ width: '100px' }} />
-                                <Text>Description 6</Text>
-                            </Box>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={CarCrash} alt="Vehicle Problem" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Vehicle Problem</Text>
+                            </Flex>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={AsianMan} alt="Bored" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Bored</Text>
+                            </Flex>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={BadWeather} alt="Bad Weather" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Bad Weather</Text>
+                            </Flex>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={eepy} alt="Driver Exhaustion" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Driver Exhaustion</Text>
+                            </Flex>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={LimitedFood} alt="Limited Food" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Limited Food</Text>
+                            </Flex>
+                            <Flex direction="column" alignItems="center" mb={2}>
+                                <img src={OutOfFuel} alt="Out of Fuel" style={{ width: '80px' }} />
+                                <Text fontSize="sm">Out of Fuel</Text>
+                            </Flex>
                         </Flex>
                     </Box>
                 )}
