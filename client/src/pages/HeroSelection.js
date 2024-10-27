@@ -8,7 +8,7 @@ import Bored from '../assets/AsianMan.png';
 import DriverExhaustion from '../assets/BadWeather.png';
 import LimitedFood from '../assets/LimitedFood.png';
 import OutOfFuel from '../assets/OutOfFuel.png';
-import backgroundImg from '../assets/Background.jpeg'; // Replace with your actual background image path
+import backgroundImg from '../assets/Background.jpeg';
 
 const HeroSelection = () => {
     const [name, setName] = useState("");
@@ -56,8 +56,7 @@ const HeroSelection = () => {
     const handleNext = () => {
         if (selectedVictim) {
             navigate("/Confirmation", {
-                state: { latitude: location.latitude, longitude: location.longitude,
-                    victim: selectedVictim }
+                state: { latitude: location.latitude, longitude: location.longitude, victim: selectedVictim }
             });
         } else {
             alert("Please select a victim first.");
@@ -74,7 +73,7 @@ const HeroSelection = () => {
             p="5"
             minH="100vh"
             textAlign="center"
-            backgroundImage={backgroundImg} // Use your background image here
+            backgroundImage={backgroundImg}
             backgroundSize="cover"
             backgroundPosition="center"
         >
@@ -84,14 +83,16 @@ const HeroSelection = () => {
                 p="6"
                 boxShadow="md"
                 mb="6"
-                position="relative" // Set to relative for positioning the question mark
+                width="600px" // Reduced width to match contributor box
+                mx="auto"
+                position="relative"
             >
                 <Heading size="lg" mb="6">
                     Please select someone to help:
                 </Heading>
 
                 <Center mb="8">
-                    <Box width="400px" height="300px" overflow="hidden">
+                    <Box width="100%" height="300px" overflow="hidden">
                         {location.latitude && location.longitude && victims ? (
                             <Map position={location} victims={victims} onMarkerSelect={handleMarkerSelect} icon={3}/>
                         ) : (
@@ -101,27 +102,48 @@ const HeroSelection = () => {
                 </Center>
 
                 <VStack spacing="4" mb="8" alignItems="center">
-                    <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
+                    <Flex
+                        p="4"
+                        borderRadius="md"
+                        boxShadow="md"
+                        direction="column"
+                        alignItems="center"
+                        width="100%" // Match width of main container
+                    >
                         <Text fontWeight="bold">Name:</Text>
                         <Text>{selectedVictim ? selectedVictim.name : "Select a victim"}</Text>
                     </Flex>
-                    <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
+                    <Flex
+                        p="4"
+                        borderRadius="md"
+                        boxShadow="md"
+                        direction="column"
+                        alignItems="center"
+                        width="100%" // Match width of main container
+                    >
                         <Text fontWeight="bold">Email:</Text>
                         <Text>{selectedVictim ? selectedVictim.contact : "Select a victim"}</Text>
                     </Flex>
-                    <Flex p="4" borderRadius="md" boxShadow="md" direction="column" alignItems="center">
+                    <Flex
+                        p="4"
+                        borderRadius="md"
+                        boxShadow="md"
+                        direction="column"
+                        alignItems="center"
+                        width="100%" // Match width of main container
+                    >
                         <Text fontWeight="bold">Time Spent Waiting:</Text>
                         <Text>{timeSpent}</Text>
                     </Flex>
                 </VStack>
 
                 <Box
-                    position="absolute" // Move question mark box here
-                    bottom="20px" // Adjust vertical position
-                    left="20px" // Adjust horizontal position
+                    position="absolute"
+                    bottom="20px"
+                    left="20px"
                 >
                     <Box
-                        background="white" // Background color of the box
+                        background="white"
                         borderRadius="md"
                         boxShadow="md"
                         p="2"
@@ -138,7 +160,7 @@ const HeroSelection = () => {
                     {showTooltip && (
                         <Box
                             position="absolute"
-                            bottom="40px" // Adjust distance from the question mark box
+                            bottom="40px"
                             left="0"
                             background="white"
                             border="1px solid black"
@@ -189,9 +211,9 @@ const HeroSelection = () => {
                 p="4"
                 mt="6"
                 textAlign="center"
-                bg="white" // Fully opaque white background
-                mx="auto" // Center horizontally
-                width="600px" // Match the width of the main content box
+                bg="white"
+                mx="auto"
+                width="600px"
             >
                 <Text fontSize="sm" color="gray.500">
                     Contributors:{" "}

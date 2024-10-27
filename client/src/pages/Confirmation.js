@@ -44,15 +44,12 @@ const Confirmation = () => {
                             console.log(err);
                         });
                 });
-            // Optionally, update local state or fetch updated data if necessary
         } catch (error) {
             console.error("Error adding hero:", error);
             alert("There was an error adding the hero.");
         }
         console.log("pressing submit");
     };
-
-
 
     return (
         <Box
@@ -61,84 +58,102 @@ const Confirmation = () => {
             minHeight="100vh"
             p="5"
             textAlign="center"
-            bgImage={`url(${BackgroundImage})`} // Using the imported image as background
+            bgImage={`url(${BackgroundImage})`}
             bgSize="cover"
             bgPosition="center"
         >
-            <Box flex="1"> {/* Ensures the box takes available space to push footer down */}
+            <Box flex="1">
                 {/* Confirmation Box */}
                 <Box
-                    p="3" // Consistent padding
+                    p="4"
                     borderRadius="md"
                     boxShadow="lg"
                     bg="white"
-                    mb="4"
-                    width="600px" // Set to match footer width
-                    mx="auto" // Center the box horizontally
+                    mb="6"
+                    width="600px"
+                    mx="auto"
                 >
-                    <Heading size="lg" mb="1"> {/* Increased heading size */}
+                    <Heading size="lg" mb="4">
                         Are you sure you want to confirm? (Help-seeker will be notified and given your contact info)
                     </Heading>
                 </Box>
 
-                <Text fontSize="lg">
-                    <strong>Rescuee Name:</strong> {victim.name || "Loading..."}
-                </Text>
-                <Text fontSize="lg">
-                    <strong>Rescuee Email:</strong> {victim.contact || "Loading..."}
-                </Text>
-                <Text fontSize="lg">
-                    <strong>Problem Category:</strong> {victim.category || "Loading..."}
-                </Text>
-                <Text fontSize="lg">
-                    <strong>Problem Description:</strong> {victim.description || "Loading..."}
-                </Text>
+                {/* Victim Information */}
+                <Box
+                    p="4"
+                    borderRadius="md"
+                    boxShadow="lg"
+                    bg="white"
+                    mb="6"
+                    width="600px"
+                    mx="auto"
+                >
+                    <Text fontSize="lg" mb="2">
+                        <strong>Rescuee Name:</strong> {victim.name || "Loading..."}
+                    </Text>
+                    <Text fontSize="lg" mb="2">
+                        <strong>Rescuee Email:</strong> {victim.contact || "Loading..."}
+                    </Text>
+                    <Text fontSize="lg" mb="2">
+                        <strong>Problem Category:</strong> {victim.category || "Loading..."}
+                    </Text>
+                    <Text fontSize="lg">
+                        <strong>Problem Description:</strong> {victim.description || "Loading..."}
+                    </Text>
+                </Box>
 
-                <VStack spacing="4" as="form">
-                    <FormControl>
-                        <FormLabel htmlFor="name">User Name:</FormLabel>
-                        <Input type="text" id="name" name="name" value={hero.name} onChange={handleChange} />
-                    </FormControl>
+                {/* Hero Information Form */}
+                <Box
+                    p="4"
+                    borderRadius="md"
+                    boxShadow="lg"
+                    bg="white"
+                    mb="6"
+                    width="600px"
+                    mx="auto"
+                >
+                    <VStack spacing="4" as="form">
+                        <FormControl>
+                            <FormLabel htmlFor="name">User Name:</FormLabel>
+                            <Input type="text" id="name" name="name" value={hero.name} onChange={handleChange} />
+                        </FormControl>
 
-                    <FormControl>
-                        <FormLabel htmlFor="contact">User Email:</FormLabel>
-                        <Input type="text" id="contact" name="contact" value={hero.contact} onChange={handleChange} />
-                    </FormControl>
-                    <Button onClick={handleSubmit}>Submit</Button>
-                </VStack>
-                
-{/* 
-                <VStack spacing="4">
-                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
-                        <Text><strong>Name:</strong> {name}</Text>
-                    </Box>
-
-                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
-                        <Text><strong>Email:</strong> {email}</Text>
-                    </Box>
-
-                    <Box p="3" borderRadius="md" boxShadow="md" bg="gray.100" w="100%">
-                        <Text><strong>Time Spent Waiting:</strong> {timeSpent}</Text>
-                    </Box>
-
-                </VStack> */}
+                        <FormControl>
+                            <FormLabel htmlFor="contact">User Email:</FormLabel>
+                            <Input type="text" id="contact" name="contact" value={hero.contact} onChange={handleChange} />
+                        </FormControl>
+                        <Button onClick={handleSubmit}>Submit</Button>
+                    </VStack>
+                </Box>
             </Box>
 
-            <Text fontSize="sm" color="gray.500" textAlign="center" mb="4">
-                Contributors:{" "}
-                <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
-                    Jonnen Chong
-                </Link>,{" "}
-                <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
-                    Anthony Huang
-                </Link>,{" "}
-                <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
-                    Soleil Pham
-                </Link>, and{" "}
-                <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
-                    Jonathan Pratt
-                </Link> - 2024
-            </Text>
+            {/* Contributor Section */}
+            <Box
+                p="4"
+                borderRadius="md"
+                boxShadow="lg"
+                bg="white"
+                width="600px"
+                mx="auto"
+                mb="4"
+            >
+                <Text fontSize="sm" color="gray.500" textAlign="center">
+                    Contributors:{" "}
+                    <Link href="https://www.linkedin.com/in/jonnen-chong-22034620a/" isExternal color="blue.500" textDecoration="underline">
+                        Jonnen Chong
+                    </Link>,{" "}
+                    <Link href="https://www.linkedin.com/in/anthony-huang-171910321/" isExternal color="blue.500" textDecoration="underline">
+                        Anthony Huang
+                    </Link>,{" "}
+                    <Link href="https://www.linkedin.com/in/chan-nhu-pham-4876a127a/" isExternal color="blue.500" textDecoration="underline">
+                        Soleil Pham
+                    </Link>, and{" "}
+                    <Link href="https://www.linkedin.com/in/jonathan-pratt-1a1196286/" isExternal color="blue.500" textDecoration="underline">
+                        Jonathan Pratt
+                    </Link> - 2024
+                </Text>
+            </Box>
+
         </Box>
     );
 };
